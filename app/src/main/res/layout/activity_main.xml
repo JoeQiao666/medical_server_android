@@ -176,7 +176,7 @@
                 android:layout_width="17.5dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="20dp"
-                android:src="@mipmap/icon_storage" />
+                android:src="@mipmap/icon_exit" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
