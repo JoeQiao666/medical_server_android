@@ -50,8 +50,8 @@ public class BaseSubscriber<T> extends DisposableObserver<T> {
                 String exJson = ex.response().errorBody().string();
                 ErrorResult error = App.gson.fromJson(exJson, ErrorResult.class);
                 error.code = ex.code();
-                if (TextUtils.isEmpty(error.message)) {
-                    error.message = App.getContext().getString(R.string.server_error);
+                if (TextUtils.isEmpty(error.msg)) {
+                    error.msg = App.getContext().getString(R.string.server_error);
                 }
                 requestCallback.requestError(error);
                 requestCallback.requestComplete();

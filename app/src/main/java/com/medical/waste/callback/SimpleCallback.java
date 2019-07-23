@@ -23,7 +23,7 @@ public abstract class SimpleCallback<T> implements RequestCallback<T> {
 
     @Override
     public void requestError(ErrorResult error) {
-        baseView.toast(error.message);
+        baseView.toast(error.msg);
     }
 
 

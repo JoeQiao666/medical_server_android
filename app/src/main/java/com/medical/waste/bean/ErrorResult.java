@@ -6,13 +6,13 @@ package com.medical.waste.bean;
  */
 public class ErrorResult {
     public int code;
-    public String message;
+    public String msg;
 
     public ErrorResult() {
     }
 
-    public ErrorResult(int code, String message) {
+    public ErrorResult(int code, String msg) {
         this.code = code;
-        this.message = message;
+        this.msg = msg;
     }
 }
