@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.medical.waste"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material_design"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview"
+    //RecyclerView分割线
+    implementation "com.yqritc:recyclerview-flexibledivider:$flexibledivider"
+    //简化RecyclerView Adapter
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$BaseRecyclerViewAdapterHelper"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //retrofit2 okhttp
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit2"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$retrofit2_rxjava2_adapter"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid"
+    //rxjava绑定生命周期
+    implementation "com.trello.rxlifecycle2:rxlifecycle:$rxlifecycle"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-android:$rxlifecycle"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle"
+    //图片加载
+    implementation("com.facebook.fresco:fresco:$fresco") {
+        exclude group: 'com.parse.bolts',
+                module: 'bolts-android'
+    }
+    //butterknife
+    implementation "com.jakewharton:butterknife:$butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife"
+    //依赖注入
+    implementation "com.google.dagger:dagger:$dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+    //打印日志
+    implementation "com.github.zhaokaiqiang.klog:library:$klog"
+    //Material风格Dialog
+    implementation("com.afollestad.material-dialogs:core:$materialdialogs") {
+        transitive = true
+    }
+    //实用工具类
+    implementation "com.blankj:utilcodex:$utilcodex"
+    //沉浸栏
+    implementation "com.gyf.immersionbar:immersionbar:$immersionbar"
+    //二维码
+    implementation "cn.bingoogolapple:bga-qrcode-zbar:$zbar"
+    //权限申请
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+}

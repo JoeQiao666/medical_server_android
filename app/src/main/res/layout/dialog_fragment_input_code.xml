@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp334"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_dialog_bg"
+        android:paddingBottom="@dimen/dp36">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/input_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp28"
+            android:text="@string/input_code_title"
+            android:textColor="@color/color_38395D"
+            android:textSize="@dimen/sp16" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/close"
+            android:layout_width="@dimen/dp48"
+            android:layout_height="@dimen/dp48"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/dp16"
+            android:src="@mipmap/icon_close" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/content"
+            style="@style/edit_style"
+            android:layout_below="@+id/input_title"
+            android:layout_marginLeft="@dimen/dp25"
+            android:layout_marginTop="@dimen/dp29"
+            android:layout_marginRight="@dimen/dp25"
+            android:background="@drawable/shape_edit_bg"
+            android:hint="@string/input_code_hint"
+            android:maxLength="14" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirm"
+            style="@style/btn_radius_style"
+            android:layout_below="@+id/content"
+            android:layout_marginLeft="@dimen/dp25"
+            android:layout_marginTop="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp25"
+            android:text="@string/confirm" />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_base_title" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp50"
+        android:src="@mipmap/ic_launcher" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginStart="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp50"
+        android:background="@drawable/edittext_bottom_line"
+        android:hint="@string/input_phone_number"
+        android:inputType="phone"
+        android:textColor="@color/color_333333"
+        android:textColorHint="@color/color_B0B0B0"
+        android:textCursorDrawable="@drawable/edit_cursor_color" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginStart="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp50"
+        android:background="@drawable/edittext_bottom_line">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_code"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            android:layout_toStartOf="@+id/tv_get_code"
+            android:background="@null"
+            android:hint="@string/input_message_code"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_B0B0B0"
+            android:textCursorDrawable="@drawable/edit_cursor_color" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_get_code"
+            android:layout_width="@dimen/dp70"
+            android:layout_height="@dimen/dp25"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/stroke_pink_corner_rasius_16dp"
+            android:gravity="center"
+            android:text="@string/get_verify_code"
+            android:textColor="@color/color_FF597D"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp45"
+        android:layout_marginStart="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp50"
+        android:layout_marginEnd="@dimen/dp50"
+        android:background="@drawable/corner_rasius_pink_22dp"
+        android:gravity="center"
+        android:text="@string/login"
+        android:textColor="@color/material_white" />
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

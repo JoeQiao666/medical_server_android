@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">AndAll</string>
+
+    <string name="input_phone_number">请输入手机号码</string>
+    <string name="input_message_code">请输入验证码</string>
+    <string name="login">登录</string>
+    <string name="get_verify_code">获取验证码</string>
+    <string name="get_verify_code_failed">获取验证码失败，请稍后重试</string>
+    <string name="phone_valid_error">请输入正确的手机号码</string>
+    <string name="resend">重新获取</string>
+    <string name="resendable_after_seconds">%s秒</string>
+    <string name="vertifycode_valid_error">请输入正确的验证码</string>
+    <string name="server_error">服务器异常</string>
+    <string name="loading">加载中...</string>
+    <string name="url_empty_error">Webview url is empty</string>
+    <string name="scan_qr">条形码</string>
+    <string name="permission_camera_denied">需要相机权限才能扫描条码</string>
+    <string name="scan_again">扫描失败，请重试</string>
+    <string name="ambientBrightnessTip">环境过暗，请打开闪光灯</string>
+    <string name="scan_success">扫码成功</string>
+    <string name="scan_hint">将采集管上的条形码放入框内，即可自动扫描</string>
+    <string name="input_bind">手动绑定</string>
+    <string name="input_code_title">试试手动输入吧</string>
+    <string name="input_code_hint">请输入14位检测码</string>
+    <string name="input_code_error">请输入正确的检测码</string>
+    <string name="confirm">确定</string>
+</resources>
