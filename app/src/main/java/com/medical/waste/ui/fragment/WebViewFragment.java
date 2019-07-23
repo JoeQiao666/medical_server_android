@@ -18,7 +18,7 @@ import com.medical.waste.base.BaseFragment;
 import com.medical.waste.base.BasePresenter;
 import com.medical.waste.base.BasePresenterImpl;
 import com.medical.waste.bean.Result;
-import com.medical.waste.bean.UserInfo;
+import com.medical.waste.bean.User;
 import com.medical.waste.callback.CustomWebChromeClient;
 import com.medical.waste.callback.CustomWebViewClient;
 import com.medical.waste.common.AppConstant;
@@ -104,16 +104,16 @@ public class WebViewFragment extends BaseFragment implements SwipeRefreshLayout.
 
     //获取手机号码
     private void getMobile(CallBackFunction function) {
-        UserInfo userInfo = UserData.getInstance().getUserInfo();
-        Map<String, Object> params = new HashMap<>();
-        Result<Map<String, Object>> result = new Result<>();
-        if (userInfo != null && !TextUtils.isEmpty(userInfo.getMobile())) {
-            params.put(AppConstant.MOBILE, userInfo.getMobile());
-        } else {
-            params.put(AppConstant.MOBILE, "");
-        }
-        result.result = params;
-        function.onCallBack(App.gson.toJson(result));
+//        User userInfo = UserData.getInstance().getUserInfo();
+//        Map<String, Object> params = new HashMap<>();
+//        Result<Map<String, Object>> result = new Result<>();
+//        if (userInfo != null && !TextUtils.isEmpty(userInfo.getMobile())) {
+//            params.put(AppConstant.MOBILE, userInfo.getMobile());
+//        } else {
+//            params.put(AppConstant.MOBILE, "");
+//        }
+//        result.result = params;
+//        function.onCallBack(App.gson.toJson(result));
     }
 
     //调用扫码
@@ -162,7 +162,7 @@ public class WebViewFragment extends BaseFragment implements SwipeRefreshLayout.
             Map<String, Object> params = new HashMap<>();
             Result<Map<String, Object>> result = new Result<>();
             params.put(AppConstant.QR_CODE, qrcode);
-            result.result = params;
+            result.data = params;
             function.onCallBack(App.gson.toJson(result));
         } else {
             toast(R.string.scan_again);

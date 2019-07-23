@@ -1,5 +1,7 @@
 package com.medical.waste.http.interceptor;
 
+import android.text.TextUtils;
+
 import com.medical.waste.common.AppConstant;
 import com.medical.waste.utils.UserData;
 
@@ -14,8 +16,11 @@ public class HeaderInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         Request.Builder requestBuilder = request.newBuilder();
+        String token = UserData.getInstance().getToken();
         //添加TOKEN
-        requestBuilder.addHeader(AppConstant.TOKEN, UserData.getInstance().getToken());
+        if (!TextUtils.isEmpty(token)) {
+            requestBuilder.addHeader(AppConstant.AUTHORIZATION, " " + token);
+        }
         return chain.proceed(requestBuilder.build());
     }
 }

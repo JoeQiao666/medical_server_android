@@ -1,73 +1,52 @@
 package com.medical.waste.ui.activity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.medical.waste.annotation.ActivityFragmentInject;
 import com.medical.waste.base.BaseActivity;
 import com.medical.waste.R;
-import com.medical.waste.common.AppConstant;
-import com.medical.waste.ui.widget.jsbridge.CallBackFunction;
-import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.medical.waste.bean.User;
+import com.medical.waste.utils.ActivityUtils;
+import com.medical.waste.utils.UserData;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.observers.DisposableObserver;
 
 @ActivityFragmentInject(contentViewId = R.layout.activity_main)
 public class MainActivity extends BaseActivity {
-    @BindView(R.id.login)
-    TextView mLogin;
-    private final RxPermissions rxPermissions = new RxPermissions(this);
+    @BindView(R.id.username)
+    AppCompatTextView mUserName;
 
     @Override
     protected void initView() {
-
+        User user = UserData.getInstance().getUserInfo();
+        if (user != null) {
+            mUserName.setText(user.getUsername());
+        }
     }
 
-    @OnClick(R.id.login)
+    @OnClick({R.id.upload, R.id.storage, R.id.deposit, R.id.history, R.id.traceback, R.id.logout})
     void onClickBtn(View view) {
         switch (view.getId()) {
-            case R.id.login:
-                showScan(this::toast);
+            case R.id.upload:
+                break;
+            case R.id.storage:
+                break;
+            case R.id.deposit:
+                break;
+            case R.id.history:
+                break;
+            case R.id.traceback:
+                break;
+            case R.id.logout:
+                UserData.getInstance().clearUser();
+                ActivityUtils.getInstance().finishAll();
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
     }
 
-    void showScan(CallBackFunction function) {
-        if (mPresenter != null) {
-            mPresenter.addDisposable(rxPermissions.request(Manifest.permission.CAMERA)
-                    .subscribe(granted -> {
-                        if (granted) {
-                            startActivity(new Intent(MainActivity.this, ScanActivity.class));
-                            //绑定扫描结果事件
-                            mPresenter.registerEvent(AppConstant.RxEvent.QR_CODE, String.class, new DisposableObserver<String>() {
-                                @Override
-                                public void onNext(String s) {
-                                    //扫描结果
-                                    if (!TextUtils.isEmpty(s)) {
-                                        function.onCallBack(s);
-                                    }
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-
-                                }
-
-                                @Override
-                                public void onComplete() {
-
-                                }
-                            });
-                        } else {
-                            toast(R.string.permission_camera_denied);
-                        }
-                    }));
-        }
-    }
 }

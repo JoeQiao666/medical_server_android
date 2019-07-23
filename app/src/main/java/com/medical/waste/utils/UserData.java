@@ -3,12 +3,13 @@ package com.medical.waste.utils;
 import android.text.TextUtils;
 
 import com.medical.waste.app.App;
-import com.medical.waste.bean.UserInfo;
+import com.medical.waste.bean.LoginData;
+import com.medical.waste.bean.User;
 import com.medical.waste.common.AppConstant;
 
 public class UserData {
     private static UserData userData;
-    private UserInfo userInfo;
+    private LoginData loginData;
 
     public static UserData getInstance() {
         if (userData == null) {
@@ -21,32 +22,39 @@ public class UserData {
         return userData;
     }
 
-    public void saveUserInfo(UserInfo userInfo) {
-        if (userInfo != null) {
-            SpUtil.putUserString(AppConstant.USER_INFO, App.gson.toJson(userInfo));
-            this.userInfo = userInfo;
+    public void saveLoginData(LoginData loginData) {
+        if (loginData != null) {
+            SpUtil.putUserString(AppConstant.USER_INFO, App.gson.toJson(loginData));
+            this.loginData = loginData;
         }
     }
 
-    public UserInfo getUserInfo() {
-        if (userInfo == null) {
+    public User getUserInfo() {
+        if (getLoginData() != null) {
+            return loginData.user;
+        }
+        return null;
+    }
+
+    public LoginData getLoginData() {
+        if (loginData == null) {
             String userInfoJson = SpUtil.getUserString(AppConstant.USER_INFO);
             if (!TextUtils.isEmpty(userInfoJson)) {
-                userInfo = App.gson.fromJson(userInfoJson, UserInfo.class);
+                loginData = App.gson.fromJson(userInfoJson, LoginData.class);
             }
         }
-        return userInfo;
+        return loginData;
     }
 
     public void clearUser() {
-        userInfo = null;
+        loginData = null;
         //清空用户相关SharedPreferences
         SpUtil.clearUser();
     }
 
     public String getToken() {
-        if (getUserInfo() != null && !TextUtils.isEmpty(getUserInfo().getToken())) {
-            return getUserInfo().getToken();
+        if (getLoginData() != null && !TextUtils.isEmpty(getLoginData().token)) {
+            return getLoginData().token;
         }
         return "";
     }

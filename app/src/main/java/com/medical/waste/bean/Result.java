@@ -11,5 +11,5 @@ public class Result<T> {
 
     public int code = 0;
     public String msg;
-    public T result;
+    public T data;
 }

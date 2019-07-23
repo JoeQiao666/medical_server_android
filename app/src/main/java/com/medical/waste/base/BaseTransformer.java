@@ -20,8 +20,8 @@ public class BaseTransformer<T> implements ObservableTransformer<Result<T>, T> {
         return upstream.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(tResult -> {
-                    if (tResult.code==0) {
-                        return tResult.result;
+                    if (tResult.code == 0) {
+                        return tResult.data;
                     } else {
                         throw new RequestFailedException(tResult);
 

@@ -1,20 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
+    android:background="@mipmap/launcher_bg"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp100"
+        android:text="@string/app_name"
+        android:textColor="@color/material_white"
+        android:textSize="@dimen/sp20" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/dp25"
+        android:layout_height="@dimen/dp25"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp55"
+        android:src="@mipmap/icon_user" />
 
     <TextView
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="测试登录"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp10"
+        android:textColor="@color/material_white"
+        android:textSize="@dimen/sp16" />
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/upload"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:background="@mipmap/icon_home_tab_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="17.5dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/icon_upload" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/upload"
+                android:textColor="@color/material_white"
+                android:textSize="10sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/storage"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:background="@mipmap/icon_home_tab_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="17.5dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/icon_storage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/storage"
+                android:textColor="@color/material_white"
+                android:textSize="10sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/deposit"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:background="@mipmap/icon_home_tab_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/icon_deposit" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/deposit"
+                android:textColor="@color/material_white"
+                android:textSize="10sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/history"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:background="@mipmap/icon_home_tab_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="17.5dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/icon_history" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/history"
+                android:textColor="@color/material_white"
+                android:textSize="10sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/traceback"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:background="@mipmap/icon_home_tab_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="17.5dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/icon_traceback" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/traceback"
+                android:textColor="@color/material_white"
+                android:textSize="10sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/logout"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:background="@mipmap/icon_home_tab_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="17.5dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/icon_storage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/logout"
+                android:textColor="@color/material_white"
+                android:textSize="10sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>

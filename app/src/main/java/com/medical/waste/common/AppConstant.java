@@ -15,6 +15,7 @@ public class AppConstant {
     public static final String URL = "url";
 
     public static final String TOKEN = "token";
+    public static final String AUTHORIZATION = "Authorization";
     public static final String USER_INFO = "USER_INFO";
     public static final String MOBILE_NO = "mobileNo";
     public static final String CODE = "code";
@@ -29,7 +30,7 @@ public class AppConstant {
     //扫描code
     public static final int REQUEST_CODE_SCAN_CODE = 1000;
     //base url
-    public static final String BASE_URL = "http://dev02api.dnatime.com";
+    public static final String BASE_URL = "http://47.88.171.244:8080";
     public static final long CONNECT_TIME_OUT = 30000;
     public static final long READ_TIME_OUT = 30000;
     public static final String APP = "app";

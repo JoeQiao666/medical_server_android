@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndAll</string>
+    <string name="app_name">院内医疗废弃物管理平台</string>
 
     <string name="input_phone_number">请输入手机号码</string>
     <string name="input_message_code">请输入验证码</string>
@@ -24,4 +24,10 @@
     <string name="input_code_hint">请输入14位检测码</string>
     <string name="input_code_error">请输入正确的检测码</string>
     <string name="confirm">确定</string>
+    <string name="upload">上传垃圾</string>
+    <string name="storage">垃圾入库</string>
+    <string name="deposit">垃圾出库</string>
+    <string name="history">历史垃圾</string>
+    <string name="traceback">垃圾追溯</string>
+    <string name="logout">退出登录</string>
 </resources>

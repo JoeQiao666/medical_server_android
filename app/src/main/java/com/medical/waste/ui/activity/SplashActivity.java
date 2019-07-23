@@ -21,14 +21,9 @@ import butterknife.BindView;
         isShowDarkStatusBarIcon = false
 )
 public class SplashActivity extends BaseFullScreenActivity<SplashContract.Presenter> implements SplashContract.View {
-    @BindView(R.id.image)
-    ImageView mImage;
-    @BindView(R.id.second)
-    TextView mSecond;
 
     @Override
     protected void initView() {
-        mImage.setImageURI(Uri.parse("https://photo.16pic.com/00/78/54/16pic_7854241_b.jpg"));
         //开启倒计时
         mPresenter.startCountdown();
     }
@@ -40,7 +35,6 @@ public class SplashActivity extends BaseFullScreenActivity<SplashContract.Presen
 
     @Override
     public void onCountDown(String second) {
-        mSecond.setText(second);
     }
 
     @Override
@@ -50,11 +44,7 @@ public class SplashActivity extends BaseFullScreenActivity<SplashContract.Presen
             startActivity(new Intent(this, LoginActivity.class));
         } else {
             //已登录
-            Bundle bundle = new Bundle();
-            bundle.putString(AppConstant.URL, "http://dev02wechatshop.dnatime.com/andall-report/demo");
-            startActivity(new Intent(this, WebViewActivity.class)
-                    .putExtras(bundle)
-            );
+            startActivity(new Intent(this, MainActivity.class));
         }
         finish();
     }

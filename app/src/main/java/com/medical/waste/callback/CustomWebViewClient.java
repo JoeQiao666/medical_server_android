@@ -30,7 +30,7 @@ public class CustomWebViewClient extends BridgeWebViewClient {
     //写入token数据
     private void writeLocalData(WebView webView) {
         String key = "token";
-        String token = UserData.getInstance().getUserInfo().getToken();
+        String token = UserData.getInstance().getToken();
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
             webView.evaluateJavascript("window.localStorage.setItem('"+ key +"','"+ token +"');", null);
         } else {
