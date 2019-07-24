@@ -32,6 +32,7 @@ public class MainActivity extends BaseActivity {
     void onClickBtn(View view) {
         switch (view.getId()) {
             case R.id.upload:
+                startActivity(new Intent(this, UploadActivity.class));
                 break;
             case R.id.storage:
                 break;

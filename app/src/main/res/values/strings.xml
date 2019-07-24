@@ -30,4 +30,21 @@
     <string name="history">历史垃圾</string>
     <string name="traceback">垃圾追溯</string>
     <string name="logout">退出登录</string>
+    <string name="department_info">科室信息</string>
+    <string name="rubbish_type">垃圾分类</string>
+    <string name="next">下一步</string>
+    <string name="bluetooth_linked">(蓝牙已连接)</string>
+    <string name="weight_hint">称重</string>
+    <string name="rubbish_weight">垃圾重量</string>
+    <string name="last">上一步</string>
+    <string name="add_rubbish">添加垃圾</string>
+    <string name="empty_department">请先扫描科室再添加</string>
+    <string name="print_tag">打印标签</string>
+    <string name="continue_add">继续添加</string>
+    <string name="medical_waste">医疗废物</string>
+    <string name="print_content">时间：%1$s\n类型：%2$s\n重量：%3$s\n科室：%4$s\n医院：%5$s</string>
+    <string name="hospital_medical_waste">院内医废</string>
+    <string name="total">合计：%s袋</string>
+    <string name="nurse_confirm">护士确认</string>
+    <string name="back_home">返回首页</string>
 </resources>

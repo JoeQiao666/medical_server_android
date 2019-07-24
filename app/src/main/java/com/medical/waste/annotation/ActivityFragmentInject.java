@@ -117,7 +117,7 @@ public @interface ActivityFragmentInject {
      *
      * @return
      */
-    boolean isShowDarkStatusBarIcon() default true;
+    boolean isShowDarkStatusBarIcon() default false;
 
     /**
      * 底部导航栏背景颜色

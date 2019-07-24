@@ -7,4 +7,12 @@
         android:src="@mipmap/login_bg"
         android:scaleType="centerCrop"
         android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="@dimen/dp48"
+        android:src="@mipmap/ic_back_btn_white"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:padding="10dp"
+        android:layout_height="@dimen/dp48" />
 </FrameLayout>

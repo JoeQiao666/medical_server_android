@@ -38,6 +38,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.AddActivity" />
+        <activity android:name=".ui.activity.UploadActivity" />
+        <activity android:name=".ui.activity.PrintActivity" />
+        <activity android:name=".ui.activity.ContinueUploadActivity" />
+        <activity android:name=".ui.activity.ConfirmActivity" />
+        <activity android:name=".ui.activity.UploadSuccessActivity" />
     </application>
 
 </manifest>
