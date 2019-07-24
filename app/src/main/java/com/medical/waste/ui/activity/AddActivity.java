@@ -1,14 +1,11 @@
 package com.medical.waste.ui.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.SizeUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.medical.waste.R;
@@ -17,7 +14,6 @@ import com.medical.waste.base.BaseActivity;
 import com.medical.waste.bean.RubbishType;
 import com.medical.waste.module.contract.AddContract;
 import com.medical.waste.module.presenter.AddPresenter;
-import com.yqritc.recyclerviewflexibledivider.VerticalDividerItemDecoration;
 
 import java.util.List;
 
