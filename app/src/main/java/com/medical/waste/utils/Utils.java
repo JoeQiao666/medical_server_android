@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -559,6 +560,138 @@ public class Utils {
 
     public static Map<String,String> getDefaultParams(){
         return new HashMap<>();
+    }
+    //change view to Bitmap
+    public static Bitmap getViewBitmap(View v) {
+        try {
+//            addViewContent.invalidate();
+//            Bitmap bitmap = Bitmap.createBitmap(addViewContent.getWidth(), addViewContent.getHeight(), Bitmap.Config.ARGB_8888);
+//            Canvas canvas = new Canvas(bitmap);
+//            addViewContent.draw(canvas);
+            v.clearFocus();
+            v.setPressed(false);
+            boolean willNotCache = v.willNotCacheDrawing();
+            v.setWillNotCacheDrawing(false);
+            int color = v.getDrawingCacheBackgroundColor();
+            v.setDrawingCacheBackgroundColor(0);
+            if (color != 0) {
+                v.destroyDrawingCache();
+            }
+            v.buildDrawingCache();
+            Bitmap cacheBitmap = v.getDrawingCache();
+            if (cacheBitmap == null) {
+                return null;
+            }
+            Bitmap bitmap = Bitmap.createBitmap(cacheBitmap);
+            v.destroyDrawingCache();
+            v.setWillNotCacheDrawing(willNotCache);
+            v.setDrawingCacheBackgroundColor(color);
+            return bitmap;
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+    public  static  byte[] view2PrinterBytes (View v){
+        return bitmap2PrinterBytes(getViewBitmap(v));
+    }
+    public  static  byte[] bitmap2PrinterBytes (Bitmap bitmap){
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        //Log.v("hello", "height?:"+height);
+        int startX = 0;
+        int startY = 0;
+        int offset = 0;
+        int scansize = width;
+        int writeNo = 0;
+        int rgb=0;
+        int colorValue = 0;
+        int[] rgbArray = new int[offset + (height - startY) * scansize
+                + (width - startX)];
+        bitmap.getPixels(rgbArray, offset, scansize, startX, startY,
+                width, height);
+
+        int iCount = (height % 8);
+        if (iCount > 0) {
+            iCount = (height / 8) + 1;
+        } else {
+            iCount = (height / 8);
+        }
+
+        byte [] mData = new byte[iCount*width];
+
+        //Log.v("hello", "myiCount?:"+iCoun t);
+        for (int l = 0; l <= iCount - 1; l++) {
+            //Log.v("hello", "iCount?:"+l);
+            //Log.d("hello", "l?:"+l);
+            for (int i = 0; i < width; i++) {
+                int rowBegin = l * 8;
+                //Log.v("hello", "width?:"+i);
+                int tmpValue = 0;
+                int leftPos = 7;
+                int newheight = ((l + 1) * 8 - 1);
+                //Log.v("hello", "newheight?:"+newheight);
+                for (int j = rowBegin; j <=newheight; j++) {
+                    //Log.v("hello", "width?:"+i+"  rowBegin?:"+j);
+                    if (j >= height) {
+                        colorValue = 0;
+                    } else {
+                        rgb = rgbArray[offset + (j - startY)* scansize + (i - startX)];
+                        if (rgb == -1) {
+                            colorValue = 0;
+                        } else {
+                            colorValue = 1;
+                        }
+                    }
+                    //Log.d("hello", "rgbArray?:"+(offset + (j - startY)
+                    //		* scansize + (i - startX)));
+                    //Log.d("hello", "colorValue?:"+colorValue);
+                    tmpValue = (tmpValue + (colorValue << leftPos));
+                    leftPos = leftPos - 1;
+
+                }
+                mData[writeNo]=(byte) tmpValue;
+                writeNo++;
+            }
+        }
+
+        return mData;
+    }
+
+    // 该函数实现对图像进行二值化处理
+    public static Bitmap gray2Binary(Bitmap graymap) {
+        //得到图形的宽度和长度
+        int width = graymap.getWidth();
+        int height = graymap.getHeight();
+        //创建二值化图像
+        Bitmap binarymap = null;
+        binarymap = graymap.copy(Bitmap.Config.ARGB_8888, true);
+        //依次循环，对图像的像素进行处理
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                //得到当前像素的值
+                int col = binarymap.getPixel(i, j);
+                //得到alpha通道的值
+                int alpha = col & 0xFF000000;
+                //得到图像的像素RGB的值
+                int red = (col & 0x00FF0000) >> 16;
+                int green = (col & 0x0000FF00) >> 8;
+                int blue = (col & 0x000000FF);
+                // 用公式X = 0.3×R+0.59×G+0.11×B计算出X代替原来的RGB
+                int gray = (int) ((float) red * 0.3 + (float) green * 0.59 + (float) blue * 0.11);
+                //对图像进行二值化处理
+                if (gray <= 95) {
+                    gray = 0;
+                } else {
+                    gray = 255;
+                }
+                // 新的ARGB
+                int newColor = alpha | (gray << 16) | (gray << 8) | gray;
+                //设置新图像的当前像素值
+                binarymap.setPixel(i, j, newColor);
+            }
+        }
+        return binarymap;
     }
 
 }

@@ -3,14 +3,20 @@ package com.medical.waste.utils;
 import android.text.TextUtils;
 
 import com.medical.waste.app.App;
+import com.medical.waste.bean.Department;
 import com.medical.waste.bean.LoginData;
+import com.medical.waste.bean.UploadData;
 import com.medical.waste.bean.User;
 import com.medical.waste.common.AppConstant;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserData {
     private static UserData userData;
     private LoginData loginData;
-
+    private Department department;
+    private List<UploadData> uploadDatas = new ArrayList<>();
     public static UserData getInstance() {
         if (userData == null) {
             synchronized (UserData.class) {
@@ -57,5 +63,36 @@ public class UserData {
             return getLoginData().token;
         }
         return "";
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+    public void clearUploadData(){
+        department = null;
+        uploadDatas.clear();
+    }
+
+    public void addUploadData(UploadData uploadData) {
+        uploadDatas.add(uploadData);
+    }
+    public UploadData getLastUploadData(){
+        if(uploadDatas.size()>0){
+            return uploadDatas.get(uploadDatas.size()-1);
+        }
+        return null;
+    }
+    public void setStaffId(String id) {
+        for (UploadData data:uploadDatas){
+            data.setStaffId(id);
+        }
+    }
+
+    public List<UploadData> getUploadDatas() {
+        return uploadDatas;
     }
 }

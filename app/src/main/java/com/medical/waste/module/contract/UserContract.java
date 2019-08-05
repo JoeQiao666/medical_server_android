@@ -8,11 +8,13 @@ import com.medical.waste.callback.RequestCallback;
 public interface UserContract {
     interface Model{
         void login(String cardId, RequestCallback<LoginData> callback);
+        void confirm(String cardId, RequestCallback<LoginData> callback);
     }
     interface Presenter extends BasePresenter {
         void login(String cardId);
+        void confirm(String cardId);
     }
     interface View extends BaseView {
-        void loginSuccess();
+        void loginSuccess(LoginData loginData);
     }
 }

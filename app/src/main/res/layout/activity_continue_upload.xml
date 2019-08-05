@@ -48,31 +48,36 @@
                 android:background="@color/divider" />
         </RelativeLayout>
 
-        <FrameLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/continue_add"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:drawableTop="@mipmap/icon_add"
+            android:drawablePadding="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/continue_add"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/continue_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawableTop="@mipmap/icon_add"
-                android:drawablePadding="20dp"
-                android:gravity="center_horizontal"
-                android:text="@string/continue_add"
-                android:textColor="@color/color_333333"
-                android:textSize="12sp" />
-
-        </FrameLayout>
         <TextView
             android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="69dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/total"
-            android:layout_marginBottom="40dp"
             android:textColor="@color/color_999999"
             android:textSize="12sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -7,6 +7,7 @@ import android.os.Handler;
 import com.medical.waste.annotation.ActivityFragmentInject;
 import com.medical.waste.R;
 import com.medical.waste.base.BaseActivity;
+import com.medical.waste.bean.LoginData;
 import com.medical.waste.module.contract.UserContract;
 import com.medical.waste.module.presenter.UserPresenter;
 
@@ -27,9 +28,8 @@ public class LoginActivity extends BaseActivity<UserContract.Presenter> implemen
 
 
     @Override
-    public void loginSuccess() {
+    public void loginSuccess(LoginData loginData) {
         startActivity(new Intent(this,MainActivity.class));
         finish();
     }
-
 }

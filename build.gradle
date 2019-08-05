@@ -67,6 +67,9 @@ allprojects {
         maven { url 'https://dl.bintray.com/letterz/AndroidSupportMaven' }
         maven { url "https://jitpack.io" }
         mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
 

@@ -34,6 +34,7 @@
     <string name="rubbish_type">垃圾分类</string>
     <string name="next">下一步</string>
     <string name="bluetooth_linked">(蓝牙已连接)</string>
+    <string name="bluetooth_unlinked">(蓝牙未连接)</string>
     <string name="weight_hint">称重</string>
     <string name="rubbish_weight">垃圾重量</string>
     <string name="last">上一步</string>
@@ -44,7 +45,11 @@
     <string name="medical_waste">医疗废物</string>
     <string name="print_content">时间：%1$s\n类型：%2$s\n重量：%3$s\n科室：%4$s\n医院：%5$s</string>
     <string name="hospital_medical_waste">院内医废</string>
-    <string name="total">合计：%s袋</string>
+    <string name="total">合计：%d袋</string>
     <string name="nurse_confirm">护士确认</string>
     <string name="back_home">返回首页</string>
+    <string name="ol">超重</string>
+    <string name="un">称重不稳定</string>
+    <string name="no_rubbish">垃圾还没有称重</string>
+    <string name="default_hospital">南京军区医院</string>
 </resources>

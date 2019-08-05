@@ -1,6 +1,7 @@
 package com.medical.waste.app;
 
 import android.app.Application;
+import android.posapi.PosApi;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
@@ -17,7 +18,7 @@ public class App extends Application {
     private static App sApplicationContext;
     private static HttpComponent httpComponent;
     private ActivityHelper mActivityHelper;
-
+    private PosApi mPosApi = null;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -27,6 +28,7 @@ public class App extends Application {
         Fresco.initialize(this);
         mActivityHelper = new ActivityHelper();
         registerActivityLifecycleCallbacks(mActivityHelper);
+        mPosApi = PosApi.getInstance(this);
     }
 
 
@@ -44,5 +46,9 @@ public class App extends Application {
 
     public static ApiService getApiService() {
         return httpComponent.getApiService();
+    }
+
+    public PosApi getPosApi() {
+        return mPosApi;
     }
 }

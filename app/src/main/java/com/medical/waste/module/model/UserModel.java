@@ -25,4 +25,12 @@ public class UserModel extends BaseLifecycleModel implements UserContract.Model 
                 .doOnNext(loginData -> UserData.getInstance().saveLoginData(loginData))
                 .subscribe(new BaseSubscriber<>(callback));
     }
+
+    @Override
+    public void confirm(String cardId, RequestCallback<LoginData> callback) {
+        App.getApiService().login(cardId)
+                .compose(provider.bindLifecycle())
+                .compose(new BaseTransformer<>())
+                .subscribe(new BaseSubscriber<>(callback));
+    }
 }

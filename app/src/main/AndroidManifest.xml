@@ -15,6 +15,11 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.NFC" />
 
     <application
         android:name=".app.App"
@@ -27,6 +32,10 @@
         tools:ignore="GoogleAppIndexingWarning"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
+
+        <service
+            android:name="com.lecheng.furiblesdk.BluetoothLeService"
+            android:enabled="true" />
         <activity android:name=".ui.activity.MainActivity"/>
         <activity android:name=".ui.activity.LoginActivity"/>
         <activity android:name=".ui.activity.ScanActivity"/>
@@ -44,6 +53,8 @@
         <activity android:name=".ui.activity.ContinueUploadActivity" />
         <activity android:name=".ui.activity.ConfirmActivity" />
         <activity android:name=".ui.activity.UploadSuccessActivity" />
+        <activity android:name=".ui.activity.ScanScaleActivity" />
+        <activity android:name=".ui.activity.ScanScaleActivity2" />
     </application>
 
 </manifest>

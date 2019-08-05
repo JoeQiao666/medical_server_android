@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="@string/bluetooth_linked"
+                android:text="@string/bluetooth_unlinked"
                 android:textColor="@color/material_white"
                 android:textSize="14sp" />
         </androidx.appcompat.widget.LinearLayoutCompat>

@@ -34,6 +34,10 @@ public class AppConstant {
     public static final long CONNECT_TIME_OUT = 30000;
     public static final long READ_TIME_OUT = 30000;
     public static final String APP = "app";
+    public static final String BT_DEVICE = "BT_DEVICE";
+    public static final String SP_DEVICE_ADDRESS = "deviceAddress";
+    public static final String SP_DEVICE_NAME = "deviceName";
+    public static final String ID = "id";
 
     public static final class RxEvent{
         public final static String  QR_CODE = "QR_CODE";
