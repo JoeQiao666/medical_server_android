@@ -15,7 +15,6 @@ import com.medical.waste.base.BaseBluetoothLeActivity;
 import com.medical.waste.bean.Department;
 import com.medical.waste.bean.RubbishType;
 import com.medical.waste.bean.UploadData;
-import com.medical.waste.common.AppConstant;
 import com.medical.waste.module.contract.AddContract;
 import com.medical.waste.module.presenter.AddPresenter;
 import com.medical.waste.utils.UserData;
@@ -124,6 +123,7 @@ public class AddActivity extends BaseBluetoothLeActivity<AddContract.Presenter> 
         }
         String wu = weight + unit;
         mWeight.setText(wu);
+        mBlueToothLinked.setText(R.string.bluetooth_linked);
     }
 
     //连接状态

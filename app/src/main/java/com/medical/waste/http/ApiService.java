@@ -2,6 +2,7 @@ package com.medical.waste.http;
 
 
 import com.medical.waste.bean.Department;
+import com.medical.waste.bean.InListData;
 import com.medical.waste.bean.LoginData;
 import com.medical.waste.bean.RecycleCompany;
 import com.medical.waste.bean.Result;
@@ -32,7 +33,7 @@ public interface ApiService {
     Observable<Result> addRubbish(@Body List<UploadData> uploadDatas);
 
     @GET("/api/getRubbish")
-    Observable<Result<Rubbish>> getRubbish(@QueryMap Map<String, String> params);
+    Observable<Result<InListData>> getRubbish(@QueryMap Map<String, String> params);
 
     @PUT("/api/store")
     Observable<Result> store(@QueryMap Map<String, String> params);

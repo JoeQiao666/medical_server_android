@@ -1,6 +1,10 @@
 package com.medical.waste.bean;
 
-public class Rubbish {
+import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public class Rubbish implements Serializable {
 
     /**
      * id : 5249ca0c8f034fb890c3ca38218acaef
@@ -53,6 +57,8 @@ public class Rubbish {
     private String recyclerName;
     private String companyName;
     private String exception;
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private SimpleDateFormat format1 = new SimpleDateFormat("yyyy.MM.dd");
 
     public String getId() {
         return id;
@@ -183,6 +189,11 @@ public class Rubbish {
     }
 
     public String getCreatedTime() {
+        try {
+            return format1.format(format.parse(createdTime).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return createdTime;
     }
 

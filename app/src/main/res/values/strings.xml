@@ -52,4 +52,16 @@
     <string name="un">称重不稳定</string>
     <string name="no_rubbish">垃圾还没有称重</string>
     <string name="default_hospital">南京军区医院</string>
+    <string name="finish_upload">上传完成</string>
+    <string name="activity_in">垃圾入库</string>
+    <string name="activity_out">垃圾出库</string>
+    <string name="bag_count">%d袋</string>
+    <string name="weight">%skg</string>
+    <string name="confirm_in">确认入库</string>
+    <string name="finish">完成</string>
+    <string name="total_bag_count">共计 %d袋</string>
+    <string name="total_weight">总重量 %skg</string>
+    <string name="in_success">垃圾入库成功</string>
+    <string name="out_success">垃圾出库成功</string>
+    <string name="confirm_out">确认出库</string>
 </resources>

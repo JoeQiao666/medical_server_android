@@ -38,6 +38,9 @@ public class AppConstant {
     public static final String SP_DEVICE_ADDRESS = "deviceAddress";
     public static final String SP_DEVICE_NAME = "deviceName";
     public static final String ID = "id";
+    public static final String IDS = "ids";
+    public static final String ADMINISTRATOR_ID = "administratorId";
+    public static final String COMPANY_ID = "companyId";
 
     public static final class RxEvent{
         public final static String  QR_CODE = "QR_CODE";

@@ -35,8 +35,10 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, UploadActivity.class));
                 break;
             case R.id.storage:
+                startActivity(new Intent(this, InActivity.class));
                 break;
             case R.id.deposit:
+                startActivity(new Intent(this, OutActivity.class));
                 break;
             case R.id.history:
                 break;
