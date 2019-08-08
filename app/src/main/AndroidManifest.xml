@@ -43,7 +43,6 @@
 
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.LoginActivity" />
-        <activity android:name=".ui.activity.ScanActivity" />
         <activity android:name=".ui.activity.WebViewActivity" />
         <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>
@@ -66,6 +65,26 @@
         <activity android:name=".ui.activity.OutSuccessActivity" />
         <activity android:name=".ui.activity.HistoryActivity" />
         <activity android:name=".ui.activity.PrintHistoryActivity" />
+
+        <!-- jpush 相关配置-->
+        <service
+            android:name=".service.JpushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name=".receiver.JpushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="${JPUSH_PKGNAME}" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

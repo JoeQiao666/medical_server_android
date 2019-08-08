@@ -9,6 +9,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "13fc8b32c7627efe5a351bfb",
+                //暂时填写默认值即可.
+                JPUSH_CHANNEL: "default",
+                CHANNEL_ID   : "default"
+        ]
     }
     buildTypes {
         release {
@@ -25,6 +35,7 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
 }
 
 dependencies {
@@ -79,4 +90,6 @@ dependencies {
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
     implementation(name: 'furiblesdk', ext: 'aar')
     implementation 'com.androidkun:XTabLayout:1.1.4'
+    implementation 'cn.jiguang.sdk:jpush:3.3.2'
+    implementation 'cn.jiguang.sdk:jcore:2.0.1'
 }

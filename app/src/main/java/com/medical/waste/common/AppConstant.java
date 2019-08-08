@@ -45,6 +45,7 @@ public class AppConstant {
     public static final String START = "start";
     public static final String END = "end";
     public static final String RUBBISH = "rubbish";
+    public static String JPUSH_ID = "jpushId";
 
     public static final class RxEvent{
         public final static String  QR_CODE = "QR_CODE";

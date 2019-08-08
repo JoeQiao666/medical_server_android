@@ -53,6 +53,7 @@ public class UserData {
     }
 
     public void clearUser() {
+        App.getContext().setAlias("");
         loginData = null;
         //清空用户相关SharedPreferences
         SpUtil.clearUser();

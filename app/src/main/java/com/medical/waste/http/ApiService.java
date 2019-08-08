@@ -24,7 +24,7 @@ import retrofit2.http.QueryMap;
 
 public interface ApiService {
     @GET("/api/login")
-    Observable<Result<LoginData>> login(@Query("id") String cardId);
+    Observable<Result<LoginData>> login(@Query("cardId") String cardId);
 
     @GET("/api/getTypes")
     Observable<Result<List<RubbishType>>> getTypes();
