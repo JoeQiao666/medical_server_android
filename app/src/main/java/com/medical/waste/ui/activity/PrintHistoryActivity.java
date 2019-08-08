@@ -1,24 +1,20 @@
 package com.medical.waste.ui.activity;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.posapi.PosApi;
 import android.posapi.PrintQueue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.medical.waste.R;
 import com.medical.waste.annotation.ActivityFragmentInject;
 import com.medical.waste.app.App;
 import com.medical.waste.base.BaseActivity;
-import com.medical.waste.bean.Department;
-import com.medical.waste.bean.UploadData;
-import com.medical.waste.utils.UserData;
+import com.medical.waste.bean.Rubbish;
+import com.medical.waste.common.AppConstant;
+import com.medical.waste.utils.QRCodeUtil;
 import com.medical.waste.utils.Utils;
 
 import java.util.concurrent.Executors;
@@ -26,14 +22,16 @@ import java.util.concurrent.Executors;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-@ActivityFragmentInject(contentViewId = R.layout.activity_print,
+@ActivityFragmentInject(contentViewId = R.layout.activity_print_history,
         isShowLeftBtn = false,
         toolbarTitle = R.string.print_tag)
-public class PrintActivity extends BaseActivity {
+public class PrintHistoryActivity extends BaseActivity {
     @BindView(R.id.print_view)
     View mPrintView;
     @BindView(R.id.content)
     TextView mContent;
+    @BindView(R.id.qrcode)
+    ImageView mQRCode;
     private PrintQueue mPrintQueue = null;
     private PosApi mPosApi;
     //检测黑标指令(detect the black label)
@@ -44,9 +42,20 @@ public class PrintActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        UploadData uploadData = UserData.getInstance().getLastUploadData();
-        Department department = UserData.getInstance().getDepartment();
-        mContent.setText(getString(R.string.print_content, uploadData.getTime(), uploadData.getTypeName(), uploadData.getWeight() + "kg", department.getName(), getString(R.string.default_hospital)));
+        Rubbish rubbish = (Rubbish) getIntent().getSerializableExtra(AppConstant.RUBBISH);
+        String status = "";
+        switch (rubbish.getStatus()) {
+            case 0:
+                status = "待入库";
+                break;
+            case 1:
+                status = "待出库";
+                break;
+            case 2:
+                status = "已出库";
+                break;
+        }
+        mContent.setText(getString(R.string.print_history_content, rubbish.getCreatedTime(), rubbish.getTypeName(), rubbish.getWeight() + "kg", rubbish.getDepartmentName(), getString(R.string.default_hospital), status));
         mPosApi = App.getContext().getPosApi();
         //初始化接口时回调(instruction callback)
         mPosApi.setOnComEventListener(mCommEventListener);
@@ -126,7 +135,6 @@ public class PrintActivity extends BaseActivity {
 
                     case 1:
                         toast("打印机缺纸");
-
                         break;
 
                 }
@@ -134,7 +142,22 @@ public class PrintActivity extends BaseActivity {
 
 
         });
+        createQrCode(rubbish.getId());
+    }
 
+    private void createQrCode(String content) {
+        Executors.newCachedThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bitmap = QRCodeUtil.createQRCodeBitmap(content, 300, 300);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mQRCode.setImageBitmap(bitmap);
+                    }
+                });
+            }
+        });
     }
 
 
@@ -146,7 +169,7 @@ public class PrintActivity extends BaseActivity {
             switch (cmdFlag) {
                 case PosApi.POS_INIT:
                     if (state == PosApi.COMM_STATUS_SUCCESS) {
-                        toast("设备初始化成功");
+//                        toast("设备初始化成功");
                     } else {
                         toast("设备初始化失败");
                     }
@@ -157,32 +180,31 @@ public class PrintActivity extends BaseActivity {
     };
 
     private void showTip(String msg) {
-        new MaterialDialog.Builder(this)
-                .content(msg)
-                .positiveText("确定")
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
-                    }
-                }).show();
+//        new MaterialDialog.Builder(this)
+//                .content(msg)
+//                .positiveText("确定")
+//                .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                    @Override
+//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                        dialog.dismiss();
+//                    }
+//                }).show();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mPosApi!=null){
+        if (mPosApi != null) {
             mPosApi.closeDev();
         }
-        if(mPrintQueue!=null){
+        if (mPrintQueue != null) {
             mPrintQueue.close();
         }
     }
 
     @OnClick(R.id.last)
     void last() {
-        finish();
-        startActivity(new Intent(this, ContinueUploadActivity.class));
+        onBackPressed();
     }
 
     @OnClick(R.id.next)
@@ -218,7 +240,6 @@ public class PrintActivity extends BaseActivity {
         });
 
     }
-
 
 //    private void printImageDemo() {
 //        int concentration = 25;//浓度

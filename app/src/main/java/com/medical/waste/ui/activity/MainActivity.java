@@ -41,6 +41,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, OutActivity.class));
                 break;
             case R.id.history:
+                startActivity(new Intent(this, HistoryActivity.class));
                 break;
             case R.id.traceback:
                 break;

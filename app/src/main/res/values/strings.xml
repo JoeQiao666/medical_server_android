@@ -44,6 +44,7 @@
     <string name="continue_add">继续添加</string>
     <string name="medical_waste">医疗废物</string>
     <string name="print_content">时间：%1$s\n类型：%2$s\n重量：%3$s\n科室：%4$s\n医院：%5$s</string>
+    <string name="print_history_content">时间：%1$s\n类型：%2$s\n重量：%3$s\n科室：%4$s\n医院：%5$s\n状态：%6$s</string>
     <string name="hospital_medical_waste">院内医废</string>
     <string name="total">合计：%d袋</string>
     <string name="nurse_confirm">护士确认</string>
@@ -64,4 +65,15 @@
     <string name="in_success">垃圾入库成功</string>
     <string name="out_success">垃圾出库成功</string>
     <string name="confirm_out">确认出库</string>
+    <string name="history_record">历史记录</string>
+    <string name="record_choose">记录筛选</string>
+    <string name="start_time">开始时间</string>
+    <string name="end_time">结束时间</string>
+    <string name="start_date">开始日期</string>
+    <string name="end_date">结束日期</string>
+    <string name="input_start_time">请选择开始时间</string>
+    <string name="input_start_date">请选择开始日期</string>
+    <string name="input_end_time">请选择结束时间</string>
+    <string name="input_end_date">请选择结束日期</string>
+    <string name="empty">暂无数据</string>
 </resources>

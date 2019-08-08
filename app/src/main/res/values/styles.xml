@@ -30,6 +30,8 @@
         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
 
         <item name="pointColor">@color/colorPrimary</item>
+        <item name="android:datePickerDialogTheme">@style/PickerDialogTheme</item>
+        <item name="android:timePickerDialogTheme">@style/PickerDialogTheme</item>
 
     </style>
     <!-- animation 样式 -->
@@ -68,6 +70,11 @@
     </style>
 
 
+    <style name="PickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/colorPrimary</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

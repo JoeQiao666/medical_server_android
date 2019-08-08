@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_base_title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/material_white" />
+
+    <com.androidkun.xtablayout.XTabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:xTabBackgroundColor="@color/divider"
+        app:xTabIndicatorColor="@color/transparent"
+        app:xTabIndicatorHeight="0px"
+        app:xTabMode="fixed"
+        app:xTabSelectedBackgroundColor="@color/colorPrimary"
+        app:xTabSelectedTextColor="@color/material_white"
+        app:xTabSelectedTextSize="18sp"
+        app:xTabTextColor="@color/color_333333"
+        app:xTabTextSize="18sp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" />
+    <TextView
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/color_333333"
+        android:layout_height="wrap_content" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="52dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/last"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/divider"
+            android:text="@string/last"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp" />
+        <LinearLayout
+            android:id="@+id/next"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableEnd="@mipmap/icon_triangle_top"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="@string/record_choose"
+                android:textColor="@color/material_white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>

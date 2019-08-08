@@ -75,8 +75,8 @@ dependencies {
     //沉浸栏
     implementation "com.gyf.immersionbar:immersionbar:$immersionbar"
     //二维码
-    implementation "cn.bingoogolapple:bga-qrcode-zbar:$zbar"
     //权限申请
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
     implementation(name: 'furiblesdk', ext: 'aar')
+    implementation 'com.androidkun:XTabLayout:1.1.4'
 }

@@ -64,6 +64,8 @@
         <activity android:name=".ui.activity.InSuccessActivity" />
         <activity android:name=".ui.activity.OutActivity" />
         <activity android:name=".ui.activity.OutSuccessActivity" />
+        <activity android:name=".ui.activity.HistoryActivity" />
+        <activity android:name=".ui.activity.PrintHistoryActivity" />
     </application>
 
 </manifest>

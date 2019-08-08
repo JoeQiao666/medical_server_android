@@ -12,26 +12,35 @@ import java.util.List;
 import java.util.Map;
 
 public interface InOutContract {
-    interface Model{
-        void getRubbishs(Map<String,String> params, RequestCallback<InListData> callback);
-        void store(Map<String,String> params, RequestCallback<Result> callback);
-        void recycle(Map<String,String> params, RequestCallback<Result> callback);
+    interface Model {
+        void getRubbishs(Map<String, String> params, RequestCallback<InListData> callback);
+
+        void store(Map<String, String> params, RequestCallback<Result> callback);
+
+        void recycle(Map<String, String> params, RequestCallback<Result> callback);
     }
+
     interface Presenter extends BasePresenter {
-        void getRubbishs(Map<String,String> params);
+        void getRubbishs(Map<String, String> params);
     }
+
     interface InPresenter extends Presenter {
-        void store(Map<String,String> params);
+        void store(Map<String, String> params);
     }
-    interface InView extends BaseView {
+
+    interface View extends BaseView {
         void showRubbish(InListData data);
+    }
+
+    interface InView extends View {
         void showStoreResult(Result result);
     }
+
     interface OutPresenter extends Presenter {
-        void recycle(Map<String,String> params);
+        void recycle(Map<String, String> params);
     }
-    interface OutView extends BaseView {
-        void showRubbish(InListData data);
+
+    interface OutView extends View {
         void showRecycleResult(Result result);
     }
 }

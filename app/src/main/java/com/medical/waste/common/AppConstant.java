@@ -41,10 +41,15 @@ public class AppConstant {
     public static final String IDS = "ids";
     public static final String ADMINISTRATOR_ID = "administratorId";
     public static final String COMPANY_ID = "companyId";
+    public static final String STATUS = "status";
+    public static final String START = "start";
+    public static final String END = "end";
+    public static final String RUBBISH = "rubbish";
 
     public static final class RxEvent{
         public final static String  QR_CODE = "QR_CODE";
 
+        public static final String FILTER = "filter";
     }
     //H5原生互调方法
     public static final class H5Method{

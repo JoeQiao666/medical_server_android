@@ -22,7 +22,7 @@ import com.medical.waste.bean.User;
 import com.medical.waste.callback.CustomWebChromeClient;
 import com.medical.waste.callback.CustomWebViewClient;
 import com.medical.waste.common.AppConstant;
-import com.medical.waste.ui.activity.ScanActivity;
+//import com.medical.waste.ui.activity.ScanActivity;
 import com.medical.waste.ui.widget.jsbridge.BridgeWebView;
 import com.medical.waste.ui.widget.jsbridge.CallBackFunction;
 import com.medical.waste.utils.UserData;
@@ -123,7 +123,7 @@ public class WebViewFragment extends BaseFragment implements SwipeRefreshLayout.
                     .subscribe(granted -> {
                         if (granted) {
                             //跳转扫码页
-                            startActivityForResult(new Intent(getActivity(), ScanActivity.class), AppConstant.REQUEST_CODE_SCAN_CODE);
+//                            startActivityForResult(new Intent(getActivity(), ScanActivity.class), AppConstant.REQUEST_CODE_SCAN_CODE);
                             //绑定扫描结果事件
                             mPresenter.registerEvent(AppConstant.RxEvent.QR_CODE, String.class, new DisposableObserver<String>() {
                                 @Override

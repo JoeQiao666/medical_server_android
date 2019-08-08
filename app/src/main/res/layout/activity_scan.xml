@@ -4,21 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <cn.bingoogolapple.qrcode.zbar.ZBarView
-        android:id="@+id/zbarview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:qrcv_animTime="1000"
-        app:qrcv_borderColor="@android:color/white"
-        app:qrcv_borderSize="@dimen/dp1"
-        app:qrcv_cornerColor="@color/color_7ED321"
-        app:qrcv_cornerLength="@dimen/dp20"
-        app:qrcv_cornerSize="@dimen/dp3"
-        app:qrcv_isShowDefaultScanLineDrawable="true"
-        app:qrcv_maskColor="@color/material_black50"
-        app:qrcv_rectWidth="@dimen/dp220"
-        app:qrcv_scanLineColor="@color/colorPrimaryDark"
-        app:qrcv_topOffset="@dimen/dp160" />
+    <!--<cn.bingoogolapple.qrcode.zbar.ZBarView-->
+        <!--android:id="@+id/zbarview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:qrcv_animTime="1000"-->
+        <!--app:qrcv_borderColor="@android:color/white"-->
+        <!--app:qrcv_borderSize="@dimen/dp1"-->
+        <!--app:qrcv_cornerColor="@color/color_7ED321"-->
+        <!--app:qrcv_cornerLength="@dimen/dp20"-->
+        <!--app:qrcv_cornerSize="@dimen/dp3"-->
+        <!--app:qrcv_isShowDefaultScanLineDrawable="true"-->
+        <!--app:qrcv_maskColor="@color/material_black50"-->
+        <!--app:qrcv_rectWidth="@dimen/dp220"-->
+        <!--app:qrcv_scanLineColor="@color/colorPrimaryDark"-->
+        <!--app:qrcv_topOffset="@dimen/dp160" />-->
 
     <include layout="@layout/include_base_title" />
 
