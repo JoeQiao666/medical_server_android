@@ -44,6 +44,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, HistoryActivity.class));
                 break;
             case R.id.traceback:
+                startActivity(new Intent(this, RubbishRecordActivity.class));
                 break;
             case R.id.logout:
                 UserData.getInstance().clearUser();

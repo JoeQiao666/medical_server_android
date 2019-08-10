@@ -55,7 +55,7 @@ public class PrintHistoryActivity extends BaseActivity {
                 status = "已出库";
                 break;
         }
-        mContent.setText(getString(R.string.print_history_content, rubbish.getCreatedTime(), rubbish.getTypeName(), rubbish.getWeight() + "kg", rubbish.getDepartmentName(), getString(R.string.default_hospital), status));
+        mContent.setText(getString(R.string.print_history_content, rubbish.getCreatedTime1(), rubbish.getTypeName(), rubbish.getWeight() + "kg", rubbish.getDepartmentName(), getString(R.string.default_hospital), status));
         mPosApi = App.getContext().getPosApi();
         //初始化接口时回调(instruction callback)
         mPosApi.setOnComEventListener(mCommEventListener);

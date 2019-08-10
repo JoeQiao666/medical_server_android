@@ -1,12 +1,15 @@
 package com.medical.waste.app;
 
 import android.app.Application;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.posapi.PosApi;
 import android.text.TextUtils;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
+import com.medical.waste.greendao.db.DaoMaster;
+import com.medical.waste.greendao.db.DaoSession;
 import com.medical.waste.http.retrofit.HttpComponent;
 import com.medical.waste.http.ApiService;
 import com.medical.waste.slideback.ActivityHelper;
@@ -27,6 +30,8 @@ public class App extends Application {
     private static HttpComponent httpComponent;
     private ActivityHelper mActivityHelper;
     private PosApi mPosApi = null;
+    private DaoSession daoSession;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -41,8 +46,19 @@ public class App extends Application {
         //jpush初始化
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
+        initGreenDao();
     }
 
+    private void initGreenDao() {
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this,"waste.db");
+        SQLiteDatabase db = helper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(db);
+        daoSession = daoMaster.newSession();
+    }
+
+    public DaoSession getDaoSession() {
+        return daoSession;
+    }
 
     public ActivityHelper getActivityHelper() {
         return mActivityHelper;

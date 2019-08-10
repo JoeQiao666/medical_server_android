@@ -65,6 +65,8 @@
         <activity android:name=".ui.activity.OutSuccessActivity" />
         <activity android:name=".ui.activity.HistoryActivity" />
         <activity android:name=".ui.activity.PrintHistoryActivity" />
+        <activity android:name=".ui.activity.RubbishRecordActivity" />
+        <activity android:name=".ui.activity.RubbishDetailActivity" />
 
         <!-- jpush 相关配置-->
         <service

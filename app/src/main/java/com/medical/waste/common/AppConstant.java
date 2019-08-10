@@ -51,6 +51,7 @@ public class AppConstant {
         public final static String  QR_CODE = "QR_CODE";
 
         public static final String FILTER = "filter";
+        public static final String REFRESH_RECORD = "refreshRecord";
     }
     //H5原生互调方法
     public static final class H5Method{

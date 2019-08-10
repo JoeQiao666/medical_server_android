@@ -1,8 +1,6 @@
 package com.medical.waste.receiver;
 
 import android.content.Context;
-import android.text.TextUtils;
-
 
 import com.medical.waste.common.AppConstant;
 import com.medical.waste.utils.SpUtil;

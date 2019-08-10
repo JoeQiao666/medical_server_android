@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 28
@@ -37,6 +38,12 @@ android {
     }
 
 }
+greendao {
+    schemaVersion 1 //数据库版本号
+    daoPackage 'com.medical.waste.greendao.db'// 设置DaoMaster、DaoSession、Dao 包名
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -92,4 +99,5 @@ dependencies {
     implementation 'com.androidkun:XTabLayout:1.1.4'
     implementation 'cn.jiguang.sdk:jpush:3.3.2'
     implementation 'cn.jiguang.sdk:jcore:2.0.1'
+    implementation 'org.greenrobot:greendao:3.2.2'
 }

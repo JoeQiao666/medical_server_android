@@ -44,7 +44,7 @@ public class InSuccessActivity extends BaseActivity{
         mRecyclerView.setAdapter(mAdapter = new BaseQuickAdapter<Rubbish, BaseViewHolder>(R.layout.item_upload) {
             @Override
             protected void convert(BaseViewHolder helper, Rubbish item) {
-                helper.setText(R.id.time, item.getCreatedTime())
+                helper.setText(R.id.time, item.getCreatedTime1())
                         .setText(R.id.type, item.getTypeName())
                         .setText(R.id.weight, item.getWeight() + "kg");
             }

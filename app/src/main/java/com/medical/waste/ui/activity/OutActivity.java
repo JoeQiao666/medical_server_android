@@ -65,7 +65,7 @@ public class OutActivity extends BaseActivity<InOutContract.OutPresenter> implem
         mRecyclerView.setAdapter(mAdapter = new BaseQuickAdapter<Rubbish, BaseViewHolder>(R.layout.item_in) {
             @Override
             protected void convert(BaseViewHolder helper, Rubbish item) {
-                helper.setText(R.id.time, item.getCreatedTime())
+                helper.setText(R.id.time, item.getCreatedTime1())
                         .setText(R.id.department, item.getDepartmentName())
                         .setText(R.id.type, item.getTypeName())
                         .setText(R.id.weight, getString(R.string.weight, item.getWeight()));

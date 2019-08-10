@@ -45,6 +45,7 @@
     <string name="medical_waste">医疗废物</string>
     <string name="print_content">时间：%1$s\n类型：%2$s\n重量：%3$s\n科室：%4$s\n医院：%5$s</string>
     <string name="print_history_content">时间：%1$s\n类型：%2$s\n重量：%3$s\n科室：%4$s\n医院：%5$s\n状态：%6$s</string>
+    <string name="rubbish_record_content">ID：%1$s\n科室：%2$s\n类型：%3$s\n重量：%4$s\n状态：%5$s</string>
     <string name="hospital_medical_waste">院内医废</string>
     <string name="total">合计：%d袋</string>
     <string name="nurse_confirm">护士确认</string>
@@ -77,4 +78,14 @@
     <string name="input_end_date">请选择结束日期</string>
     <string name="empty">暂无数据</string>
     <string name="nfc_error">刷卡失败，请重试</string>
+    <string name="rubbish_record_hint">输入id查询</string>
+    <string name="rubbish_record_hint1">按SCAN键扫描或输入id查询</string>
+    <string name="show_detail">查\n询\n详\n情</string>
+    <string name="rubbish_record">垃圾追溯</string>
+    <string name="input_id">请输入id</string>
+    <string name="scan_error">扫码失败，请重试</string>
+    <string name="basic_info">ID：%1$s\n科室：%2$s\n类型：%3$s\n重量：%4$s\n状态：%5$s</string>
+    <string name="other_info">操作人：%1$s\n确认人：%2$s\n操作时间：%3$s</string>
+    <string name="rubbish_detail">垃圾详情</string>
+    <string name="close">关闭</string>
 </resources>
