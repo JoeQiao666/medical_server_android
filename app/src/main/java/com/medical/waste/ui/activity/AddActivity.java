@@ -2,6 +2,7 @@ package com.medical.waste.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -117,13 +118,19 @@ public class AddActivity extends BaseBluetoothLeActivity<AddContract.Presenter> 
             toast(R.string.ol);
             return;
         }
-        this.weight = Double.parseDouble(w);
-        if (weight < 0) {
-            weight = 0;
+        try {
+            mBlueToothLinked.setText(R.string.bluetooth_linked);
+            if (!TextUtils.isEmpty(w)) {
+                this.weight = Double.parseDouble(w);
+                if (weight < 0) {
+                    weight = 0;
+                }
+                String wu = weight + unit;
+                mWeight.setText(wu);
+            }
+        } catch (Exception e) {
+
         }
-        String wu = weight + unit;
-        mWeight.setText(wu);
-        mBlueToothLinked.setText(R.string.bluetooth_linked);
     }
 
     //连接状态

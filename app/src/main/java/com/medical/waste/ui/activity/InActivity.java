@@ -163,11 +163,16 @@ public class InActivity extends BaseActivity<InOutContract.InPresenter> implemen
 
     @Override
     public void showStoreResult(Result result) {
-        startActivity(new Intent(this, InSuccessActivity.class).putExtra("rubbish", new ArrayList<>(mChooseRubbish)));
-        mChooseRubbish.clear();
-        mAdapter.notifyDataSetChanged();
-        calculation();
-        refresh();
+        if (result.code == 0) {
+            startActivity(new Intent(this, InSuccessActivity.class).putExtra("rubbish", new ArrayList<>(mChooseRubbish)));
+            mChooseRubbish.clear();
+            mAdapter.notifyDataSetChanged();
+            calculation();
+            refresh();
+        } else {
+            toast(result.msg);
+        }
+
     }
 
     @OnClick({R.id.top, R.id.last, R.id.next})
@@ -201,9 +206,7 @@ public class InActivity extends BaseActivity<InOutContract.InPresenter> implemen
             String ids = sb.substring(0, sb.length() - 1);
             Map<String, String> params = Utils.getDefaultParams();
             params.put(AppConstant.IDS, ids);
-            // TODO: 2019-08-05  
-//            params.put(AppConstant.ADMINISTRATOR_ID, id);
-            params.put(AppConstant.ADMINISTRATOR_ID, "2");
+            params.put(AppConstant.ADMINISTRATOR_ID, id);
             mPresenter.store(params);
         }
     }

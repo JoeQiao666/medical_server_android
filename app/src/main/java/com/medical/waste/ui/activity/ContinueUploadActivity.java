@@ -12,6 +12,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.medical.waste.R;
 import com.medical.waste.annotation.ActivityFragmentInject;
 import com.medical.waste.base.BaseActivity;
+import com.medical.waste.bean.Department;
 import com.medical.waste.bean.Result;
 import com.medical.waste.bean.UploadData;
 import com.medical.waste.common.AppConstant;
@@ -29,6 +30,8 @@ import butterknife.OnClick;
 public class ContinueUploadActivity extends BaseActivity<ContinueUploadContract.Presenter> implements ContinueUploadContract.View {
     @BindView(R.id.total)
     TextView mTotal;
+     @BindView(R.id.department)
+    TextView mDepartment;
     @BindView(R.id.recyclerview)
     RecyclerView mRecyclerView;
     private BaseQuickAdapter<UploadData, BaseViewHolder> mAdapter;
@@ -40,6 +43,10 @@ public class ContinueUploadActivity extends BaseActivity<ContinueUploadContract.
 
     @Override
     protected void initView() {
+        Department department = UserData.getInstance().getDepartment();
+        if (department != null) {
+            mDepartment.setText(department.getName());
+        }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this)
                 .sizeResId(R.dimen.divider)
@@ -83,6 +90,10 @@ public class ContinueUploadActivity extends BaseActivity<ContinueUploadContract.
 
     @Override
     public void showUploadResult(Result result) {
-        startActivity(new Intent(this, UploadSuccessActivity.class));
+        if (result.code == 0) {
+            startActivity(new Intent(this, UploadSuccessActivity.class));
+        } else {
+            toast(result.msg);
+        }
     }
 }

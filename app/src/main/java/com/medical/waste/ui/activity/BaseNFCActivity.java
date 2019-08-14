@@ -8,6 +8,7 @@ import android.nfc.Tag;
 import android.nfc.tech.IsoDep;
 import android.nfc.tech.MifareClassic;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import com.medical.waste.base.BaseActivity;
 import com.medical.waste.base.BasePresenter;
@@ -21,10 +22,10 @@ public abstract class BaseNFCActivity<T extends BasePresenter> extends BaseActiv
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPendingIntent = PendingIntent.getActivity(this, 0, new Intent(this,getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+        mPendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
         IntentFilter tech = new IntentFilter(NfcAdapter.ACTION_TECH_DISCOVERED);
-        mFilters = new IntentFilter[] { tech };
-        mTechLists = new String[][] {new String[] { MifareClassic.class.getName() },new String[] { IsoDep.class.getName() } };
+        mFilters = new IntentFilter[]{tech};
+        mTechLists = new String[][]{new String[]{MifareClassic.class.getName()}, new String[]{IsoDep.class.getName()}};
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
     }
 
@@ -44,8 +45,15 @@ public abstract class BaseNFCActivity<T extends BasePresenter> extends BaseActiv
             return;
         Tag tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 
-        try{
-            onGetNfcId(bytesToHexString(tagFromIntent.getId()));
+        try {
+            String s = bytesToHexString(tagFromIntent.getId());
+            if (!TextUtils.isEmpty(s)) {
+                if (s.startsWith("0x")) {
+                    onGetNfcId(s.substring(2));
+                } else {
+                    onGetNfcId(s);
+                }
+            }
 //            MifareClassic mifare = MifareClassic.get(tagFromIntent);
 //            int type = mifare.getType();
 //            String sType = "Mifare Classic";
@@ -64,10 +72,11 @@ public abstract class BaseNFCActivity<T extends BasePresenter> extends BaseActiv
 //                    sType = "Mifare Classic UNKNOWN";
 //                    break;
 //            }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public abstract void onGetNfcId(String id);
 
     @Override
@@ -77,6 +86,7 @@ public abstract class BaseNFCActivity<T extends BasePresenter> extends BaseActiv
             nfcAdapter.disableForegroundDispatch(this);
         }
     }
+
     private String bytesToHexString(byte[] src) {
         StringBuilder stringBuilder = new StringBuilder("0x");
         if (src == null || src.length <= 0) {

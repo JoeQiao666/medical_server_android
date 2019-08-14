@@ -10,6 +10,9 @@ import com.medical.waste.module.contract.UploadContract;
 import com.medical.waste.module.presenter.UploadPresenter;
 import com.medical.waste.utils.UserData;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.OnClick;
 
 @ActivityFragmentInject(contentViewId = R.layout.activity_upload,
@@ -45,7 +48,12 @@ public class UploadActivity extends BaseScanActivity<UploadContract.Presenter> i
         if (TextUtils.isEmpty(content)) {
             return;
         }
-        mPresenter.getDepartmentById(content);
+        try {
+            JSONObject jsonObject = new JSONObject(content);
+            mPresenter.getDepartmentById(jsonObject.optString("id"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

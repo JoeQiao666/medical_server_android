@@ -11,6 +11,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.medical.waste.R;
@@ -79,9 +80,10 @@ public abstract class BaseScanActivity<T extends BasePresenter> extends BaseActi
                     //收到扫描数据 关闭扫描触发，下一次手动开启(received the scanning data,close the scan trigger)
                     commonApi.setGpioOut(GPIO_SCAN_TRIG, 0);
                     String s = (String) msg.obj;
-                    if (s != null) {
+                    if (!TextUtils.isEmpty(s)) {
                         playSound();
                         onGetScanString(s);
+
                     }
                     break;
             }

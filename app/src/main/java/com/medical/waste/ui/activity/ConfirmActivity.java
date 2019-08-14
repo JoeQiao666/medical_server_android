@@ -39,7 +39,11 @@ public class ConfirmActivity extends BaseNFCActivity<UserContract.Presenter> imp
             return;
         }
 //        mPresenter.login(id);
-        mPresenter.confirm("1");
+//        mPresenter.confirm(id);
+        Intent intent = new Intent();
+        intent.putExtra(AppConstant.ID,id);
+        setResult(RESULT_OK,intent);
+        finish();
     }
 
     @Override

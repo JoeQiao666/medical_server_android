@@ -5,7 +5,6 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Transient;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import org.greenrobot.greendao.annotation.Generated;
 @Entity
@@ -242,7 +241,7 @@ public class Rubbish implements Serializable {
     public String getCreatedTime1() {
         try {
             return format1.format(format.parse(createdTime).getTime());
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return createdTime;

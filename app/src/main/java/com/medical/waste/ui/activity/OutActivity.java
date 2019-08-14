@@ -164,11 +164,15 @@ public class OutActivity extends BaseActivity<InOutContract.OutPresenter> implem
 
     @Override
     public void showRecycleResult(Result result) {
-        startActivity(new Intent(this, OutSuccessActivity.class).putExtra("rubbish", new ArrayList<>(mChooseRubbish)));
-        mChooseRubbish.clear();
-        mAdapter.notifyDataSetChanged();
-        calculation();
-        refresh();
+        if (result.code == 0) {
+            startActivity(new Intent(this, OutSuccessActivity.class).putExtra("rubbish", new ArrayList<>(mChooseRubbish)));
+            mChooseRubbish.clear();
+            mAdapter.notifyDataSetChanged();
+            calculation();
+            refresh();
+        } else {
+            toast(result.msg);
+        }
     }
 
     @OnClick({R.id.top, R.id.last, R.id.next})
@@ -202,9 +206,7 @@ public class OutActivity extends BaseActivity<InOutContract.OutPresenter> implem
             String ids = sb.substring(0, sb.length() - 1);
             Map<String, String> params = Utils.getDefaultParams();
             params.put(AppConstant.IDS, ids);
-            // TODO: 2019-08-05  
-//            params.put(AppConstant.ADMINISTRATOR_ID, id);
-            params.put(AppConstant.COMPANY_ID, "51896f7d67714f1e80711abcafa0872e");
+            params.put(AppConstant.COMPANY_ID, id);
             mPresenter.recycle(params);
         }
     }

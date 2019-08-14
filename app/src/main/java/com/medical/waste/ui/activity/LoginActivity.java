@@ -12,7 +12,7 @@ import com.medical.waste.base.BaseActivity;
 import com.medical.waste.bean.LoginData;
 import com.medical.waste.module.contract.UserContract;
 import com.medical.waste.module.presenter.UserPresenter;
-
+import com.socks.library.KLog;
 
 
 @ActivityFragmentInject(contentViewId = R.layout.activity_login)
@@ -41,6 +41,7 @@ public class LoginActivity extends BaseNFCActivity<UserContract.Presenter> imple
             toast(R.string.nfc_error);
             return;
         }
-        mPresenter.login("0");
+        KLog.e(id);
+        mPresenter.login(id);
     }
 }
