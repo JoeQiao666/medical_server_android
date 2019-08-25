@@ -7,14 +7,14 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lineSpacingExtra="5dp"
-        android:padding="10dp"
+        android:lineSpacingExtra="5pt"
+        android:padding="10pt"
         android:text="@string/rubbish_record_content"
         android:textColor="@color/color_666666" />
 
     <TextView
         android:id="@+id/show_detail"
-        android:layout_width="40dp"
+        android:layout_width="40pt"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/content"
         android:layout_alignBottom="@+id/content"

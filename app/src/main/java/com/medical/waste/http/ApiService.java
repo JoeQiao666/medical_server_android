@@ -2,6 +2,7 @@ package com.medical.waste.http;
 
 
 import com.medical.waste.bean.Department;
+import com.medical.waste.bean.HospitalInfo;
 import com.medical.waste.bean.InListData;
 import com.medical.waste.bean.LoginData;
 import com.medical.waste.bean.RecycleCompany;
@@ -25,6 +26,9 @@ import retrofit2.http.QueryMap;
 public interface ApiService {
     @GET("/api/login")
     Observable<Result<LoginData>> login(@Query("cardId") String cardId);
+
+    @GET("/platform/hospital/name/data")
+    Observable<Result<List<HospitalInfo>>> getHospital();
 
     @GET("/api/getTypes")
     Observable<Result<List<RubbishType>>> getTypes();

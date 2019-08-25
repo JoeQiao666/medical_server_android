@@ -7,8 +7,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30pt"
+        android:layout_marginEnd="30pt"
         android:background="@color/material_white"
         app:cardCornerRadius="@dimen/dp10"
         app:cardElevation="0px">
@@ -22,7 +22,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="60pt">
 
                 <LinearLayout
                     android:id="@+id/tab_time"
@@ -44,7 +44,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="2pt"
                         android:gravity="center"
                         android:text="(显示近一天)"
                         android:textColor="@drawable/tab_textcolor"
@@ -72,7 +72,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="2pt"
                         android:gravity="center"
                         android:text="(显示近一个月)"
                         android:textColor="@drawable/tab_textcolor"
@@ -83,7 +83,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="60pt">
 
                 <TextView
                     android:id="@+id/start"
@@ -97,7 +97,7 @@
                     android:textSize="14sp" />
 
                 <View
-                    android:layout_width="0.5dp"
+                    android:layout_width="0.5pt"
                     android:layout_height="match_parent"
                     android:background="@color/divider" />
 
@@ -116,7 +116,7 @@
             <TextView
                 android:id="@+id/confirm"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="50pt"
                 android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:text="@string/confirm"

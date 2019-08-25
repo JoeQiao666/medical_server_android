@@ -1,6 +1,7 @@
 package com.medical.waste.base;
 
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.blankj.utilcode.util.AdaptScreenUtils;
 import com.google.android.material.snackbar.Snackbar;
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
@@ -148,6 +150,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         mPresenter = initPresenter();
         // 设置侧滑关闭页面，默认不开启侧滑
         initSlidr();
+        adapterFontSize();
         //没有布局文件
         if (mContentViewId != -1) {
             mContentView = LayoutInflater.from(this).inflate(mContentViewId, null);
@@ -158,6 +161,12 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         initToolbar();
         initImmersionBar();
         initView();
+    }
+
+    private void adapterFontSize() {
+        Resources res = Resources.getSystem();
+        res.getConfiguration().fontScale = (float) 1.5;
+        res.updateConfiguration(res.getConfiguration(), res.getDisplayMetrics());
     }
 
     //沉浸栏设置
@@ -517,5 +526,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     @Override
     public <E> LifecycleTransformer<E> bindLifecycle() {
         return this.bindUntilEvent(ActivityEvent.DESTROY);
+    }
+
+    @Override
+    public Resources getResources() {
+        return AdaptScreenUtils.adaptWidth(super.getResources(), 350);
     }
 }

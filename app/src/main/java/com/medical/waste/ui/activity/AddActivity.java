@@ -19,6 +19,7 @@ import com.medical.waste.bean.UploadData;
 import com.medical.waste.module.contract.AddContract;
 import com.medical.waste.module.presenter.AddPresenter;
 import com.medical.waste.utils.UserData;
+import com.medical.waste.utils.Utils;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.text.SimpleDateFormat;
@@ -89,6 +90,7 @@ public class AddActivity extends BaseBluetoothLeActivity<AddContract.Presenter> 
         }
         Department department = UserData.getInstance().getDepartment();
         UploadData uploadData = new UploadData();
+        uploadData.setId(Utils.getUUid());
         uploadData.setDepartmentId(department.getId());
         SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
         String time = format.format(System.currentTimeMillis());

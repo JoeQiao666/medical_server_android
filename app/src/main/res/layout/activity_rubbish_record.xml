@@ -9,13 +9,13 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="0.5pt"
         android:background="@color/material_white" />
 
     <com.androidkun.xtablayout.XTabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="50pt"
         app:xTabBackgroundColor="@color/divider"
         app:xTabIndicatorColor="@color/transparent"
         app:xTabIndicatorHeight="0px"
@@ -34,7 +34,7 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="52dp">
+        android:layout_height="52pt">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/last"
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:drawableEnd="@mipmap/icon_triangle_top"
-                android:drawablePadding="5dp"
+                android:drawablePadding="5pt"
                 android:gravity="center"
                 android:text="@string/record_choose"
                 android:textColor="@color/material_white"

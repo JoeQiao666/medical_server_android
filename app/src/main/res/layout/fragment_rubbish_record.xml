@@ -21,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:paddingTop="5pt"
+        android:paddingBottom="5pt"
         android:textColor="@color/color_333333"
         android:visibility="gone" />
 </LinearLayout>

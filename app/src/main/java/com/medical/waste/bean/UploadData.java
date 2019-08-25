@@ -13,6 +13,7 @@ public class UploadData {
      * isBottle : 0
      */
 
+    private String id;
     private String departmentId;
     private String weight;
     private String typeId;
@@ -23,6 +24,14 @@ public class UploadData {
     private String typeName;
     @Expose
     private String time;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getDepartmentId() {
         return departmentId;

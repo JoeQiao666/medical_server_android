@@ -35,6 +35,14 @@ public class UserData {
         }
     }
 
+    public String getHospital() {
+        if(getLoginData()!=null){
+            if(loginData.hospitalInfo!=null&&!TextUtils.isEmpty(loginData.hospitalInfo.hospital)){
+                return loginData.hospitalInfo.hospital;
+            }
+        }
+        return "";
+    }
     public User getUserInfo() {
         if (getLoginData() != null) {
             return loginData.user;

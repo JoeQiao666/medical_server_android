@@ -46,7 +46,7 @@ public class PrintActivity extends BaseActivity {
     protected void initView() {
         UploadData uploadData = UserData.getInstance().getLastUploadData();
         Department department = UserData.getInstance().getDepartment();
-        mContent.setText(getString(R.string.print_content, uploadData.getTime(), uploadData.getTypeName(), uploadData.getWeight() + "kg", department.getName(), getString(R.string.default_hospital)));
+        mContent.setText(getString(R.string.print_content, uploadData.getTime(), uploadData.getTypeName(), uploadData.getWeight() + "kg", department.getName(), UserData.getInstance().getHospital()));
         mPosApi = App.getContext().getPosApi();
         //初始化接口时回调(instruction callback)
         mPosApi.setOnComEventListener(mCommEventListener);

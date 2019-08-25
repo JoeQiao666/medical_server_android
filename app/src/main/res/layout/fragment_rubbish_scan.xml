@@ -4,8 +4,8 @@
 
 
         <LinearLayout
-            android:layout_width="162dp"
-            android:layout_height="162dp"
+            android:layout_width="162pt"
+            android:layout_height="162pt"
             android:layout_gravity="center"
             android:background="@mipmap/icon_scan_bg"
             android:gravity="center"
@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="8pt"
                 android:text="扫描垃圾袋二维码垃圾追溯"
                 android:textColor="@color/color_666666"
                 android:textSize="10sp" />

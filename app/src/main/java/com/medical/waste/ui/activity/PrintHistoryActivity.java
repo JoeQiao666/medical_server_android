@@ -15,6 +15,7 @@ import com.medical.waste.base.BaseActivity;
 import com.medical.waste.bean.Rubbish;
 import com.medical.waste.common.AppConstant;
 import com.medical.waste.utils.QRCodeUtil;
+import com.medical.waste.utils.UserData;
 import com.medical.waste.utils.Utils;
 
 import java.util.concurrent.Executors;
@@ -55,7 +56,7 @@ public class PrintHistoryActivity extends BaseActivity {
                 status = "已出库";
                 break;
         }
-        mContent.setText(getString(R.string.print_history_content, rubbish.getCreatedTime1(), rubbish.getTypeName(), rubbish.getWeight() + "kg", rubbish.getDepartmentName(), getString(R.string.default_hospital), status));
+        mContent.setText(getString(R.string.print_history_content, rubbish.getCreatedTime1(), rubbish.getTypeName(), rubbish.getWeight() + "kg", rubbish.getDepartmentName(),  UserData.getInstance().getHospital(), status));
         mPosApi = App.getContext().getPosApi();
         //初始化接口时回调(instruction callback)
         mPosApi.setOnComEventListener(mCommEventListener);

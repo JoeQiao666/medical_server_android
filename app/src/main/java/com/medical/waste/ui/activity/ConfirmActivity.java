@@ -28,7 +28,7 @@ public class ConfirmActivity extends BaseNFCActivity<UserContract.Presenter> imp
 
 
 
-    @OnClick(R.id.btn_back)
+    @OnClick({R.id.btn_back,R.id.cancel})
     void back() {
         onBackPressed();
     }

@@ -115,7 +115,7 @@ public class Utils {
     }
 
     /**
-     * 产生UUID 等图片验证码使用
+     * 产生UUID
      *
      * @return
      */

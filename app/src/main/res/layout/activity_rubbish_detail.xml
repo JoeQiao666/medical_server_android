@@ -28,27 +28,27 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/content1"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="20pt"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
 
                     <View
-                        android:layout_width="0.5dp"
-                        android:layout_height="50dp"
+                        android:layout_width="0.5pt"
+                        android:layout_height="50pt"
                         android:background="@color/colorPrimary" />
 
 
                     <View
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_width="6pt"
+                        android:layout_height="6pt"
+                        android:layout_marginTop="2pt"
                         android:background="@drawable/ovel_blue" />
 
                     <View
-                        android:layout_width="0.5dp"
+                        android:layout_width="0.5pt"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="2pt"
                         android:background="@color/colorPrimary" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -56,8 +56,8 @@
                     android:id="@+id/content1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="45dp"
+                    android:layout_marginStart="15pt"
+                    android:layout_marginTop="45pt"
                     android:layout_toEndOf="@+id/line1"
 
                     android:orientation="vertical">
@@ -72,8 +72,8 @@
                         android:id="@+id/basic_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="5pt"
+                        android:lineSpacingExtra="5pt"
                         android:text="@string/basic_info"
                         android:textColor="@color/color_666666" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -91,27 +91,27 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/content2"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="20pt"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
 
                     <View
-                        android:layout_width="0.5dp"
-                        android:layout_height="30dp"
+                        android:layout_width="0.5pt"
+                        android:layout_height="30pt"
                         android:background="@color/colorPrimary" />
 
 
                     <View
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_width="6pt"
+                        android:layout_height="6pt"
+                        android:layout_marginTop="2pt"
                         android:background="@drawable/ovel_blue" />
 
                     <View
-                        android:layout_width="0.5dp"
+                        android:layout_width="0.5pt"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="2pt"
                         android:background="@color/colorPrimary" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -119,8 +119,8 @@
                     android:id="@+id/content2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="15pt"
+                    android:layout_marginTop="25pt"
                     android:layout_toEndOf="@+id/line2"
 
                     android:orientation="vertical">
@@ -135,8 +135,8 @@
                         android:id="@+id/upload_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="5pt"
+                        android:lineSpacingExtra="5pt"
                         android:text="@string/other_info"
                         android:textColor="@color/color_666666" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -154,27 +154,27 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/content3"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="20pt"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
 
                     <View
-                        android:layout_width="0.5dp"
-                        android:layout_height="30dp"
+                        android:layout_width="0.5pt"
+                        android:layout_height="30pt"
                         android:background="@color/colorPrimary" />
 
 
                     <View
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_width="6pt"
+                        android:layout_height="6pt"
+                        android:layout_marginTop="2pt"
                         android:background="@drawable/ovel_blue" />
 
                     <View
-                        android:layout_width="0.5dp"
+                        android:layout_width="0.5pt"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="2pt"
                         android:background="@color/colorPrimary" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -182,8 +182,8 @@
                     android:id="@+id/content3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="15pt"
+                    android:layout_marginTop="25pt"
                     android:layout_toEndOf="@+id/line3"
 
                     android:orientation="vertical">
@@ -198,8 +198,8 @@
                         android:id="@+id/in_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="5pt"
+                        android:lineSpacingExtra="5pt"
                         android:text="@string/other_info"
                         android:textColor="@color/color_666666" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -217,27 +217,27 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/content4"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="20pt"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
 
                     <View
-                        android:layout_width="0.5dp"
-                        android:layout_height="30dp"
+                        android:layout_width="0.5pt"
+                        android:layout_height="30pt"
                         android:background="@color/colorPrimary" />
 
 
                     <View
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_width="6pt"
+                        android:layout_height="6pt"
+                        android:layout_marginTop="2pt"
                         android:background="@drawable/ovel_blue" />
 
                     <View
-                        android:layout_width="0.5dp"
+                        android:layout_width="0.5pt"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="2pt"
                         android:background="@color/colorPrimary" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -245,8 +245,8 @@
                     android:id="@+id/content4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="15pt"
+                    android:layout_marginTop="25pt"
                     android:layout_toEndOf="@+id/line4"
 
                     android:orientation="vertical">
@@ -261,8 +261,8 @@
                         android:id="@+id/out_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="5pt"
+                        android:lineSpacingExtra="5pt"
                         android:text="@string/other_info"
                         android:textColor="@color/color_666666" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -280,27 +280,27 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/qrcode"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="20pt"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
 
                     <View
-                        android:layout_width="0.5dp"
-                        android:layout_height="30dp"
+                        android:layout_width="0.5pt"
+                        android:layout_height="30pt"
                         android:background="@color/colorPrimary" />
 
 
                     <View
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_width="6pt"
+                        android:layout_height="6pt"
+                        android:layout_marginTop="2pt"
                         android:background="@drawable/ovel_blue" />
 
                     <View
-                        android:layout_width="0.5dp"
+                        android:layout_width="0.5pt"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="2pt"
                         android:background="@color/colorPrimary" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -308,8 +308,8 @@
                     android:id="@+id/content5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="15pt"
+                    android:layout_marginTop="25pt"
                     android:layout_toEndOf="@+id/line5"
 
                     android:orientation="vertical">
@@ -329,7 +329,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/line5"
                     android:layout_below="@+id/content5"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5pt" />
             </RelativeLayout>
 
 
@@ -339,7 +339,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/close"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="52pt"
         android:background="@color/colorPrimary"
         android:text="@string/close"
         android:textColor="@color/material_white"
