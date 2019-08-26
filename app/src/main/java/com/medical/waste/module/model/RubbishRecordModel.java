@@ -35,7 +35,6 @@ public class RubbishRecordModel extends BaseLifecycleModel implements RubbishRec
     @Override
     public void getRubbishById(String id, RequestCallback<Rubbish> callback) {
         App.getApiService().getOneRubbish(id)
-                .compose(provider.bindLifecycle())
                 .compose(new BaseTransformer<>())
                 .doOnNext(new Consumer<Rubbish>() {
                     @Override

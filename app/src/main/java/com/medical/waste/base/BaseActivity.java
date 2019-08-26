@@ -1,6 +1,7 @@
 package com.medical.waste.base;
 
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -150,7 +151,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         mPresenter = initPresenter();
         // 设置侧滑关闭页面，默认不开启侧滑
         initSlidr();
-        adapterFontSize();
+//        adapterFontSize();
         //没有布局文件
         if (mContentViewId != -1) {
             mContentView = LayoutInflater.from(this).inflate(mContentViewId, null);
@@ -163,11 +164,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         initView();
     }
 
-    private void adapterFontSize() {
-        Resources res = Resources.getSystem();
-        res.getConfiguration().fontScale = (float) 1.5;
-        res.updateConfiguration(res.getConfiguration(), res.getDisplayMetrics());
-    }
+//    private void adapterFontSize() {
+//        Resources res = Resources.getSystem();
+//        res.getConfiguration().fontScale = (float) 1.5;
+//        res.updateConfiguration(res.getConfiguration(), res.getDisplayMetrics());
+//    }
 
     //沉浸栏设置
     protected void initImmersionBar() {
@@ -530,6 +531,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
 
     @Override
     public Resources getResources() {
-        return AdaptScreenUtils.adaptWidth(super.getResources(), 350);
+        Resources res = AdaptScreenUtils.adaptWidth(super.getResources(),390);
+        Configuration config = res.getConfiguration();
+        config.fontScale = 1.3f;//1 设置正常字体大小的倍数
+        res.updateConfiguration(config, res.getDisplayMetrics());
+        return res;
     }
 }

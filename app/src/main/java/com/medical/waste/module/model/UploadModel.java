@@ -23,7 +23,6 @@ public class UploadModel extends BaseLifecycleModel implements UploadContract.Mo
     @Override
     public void getDepartmentById(String id, RequestCallback<Department> callback) {
         App.getApiService().getDepartmentById(id)
-                .compose(provider.bindLifecycle())
                 .compose(new BaseTransformer<>())
                 .subscribe(new BaseSubscriber<>(callback));
     }

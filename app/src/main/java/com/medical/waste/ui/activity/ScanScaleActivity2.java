@@ -72,8 +72,8 @@ public class ScanScaleActivity2 extends DeviceListActivity {
         showProgress("正在连接称重设备...");
         scanLeDevice(true);
 //        startActivity(new Intent(ScanScaleActivity2.this, AddActivity.class)
-//                .putExtra(BluetoothLeActivity.EXTRAS_DEVICE_NAME, "Furi_0227F5")
-//                .putExtra(BluetoothLeActivity.EXTRAS_DEVICE_ADDRESS, "78:9C:E7:02:27:F5"));
+//                .putExtra(BluetoothLeActivity.EXTRAS_DEVICE_NAME, "Furi_0B539A")
+//                .putExtra(BluetoothLeActivity.EXTRAS_DEVICE_ADDRESS, "78:9C:E7:0B:53:9A"));
 //        scanLeDevice(false);
 //        finish();
     }

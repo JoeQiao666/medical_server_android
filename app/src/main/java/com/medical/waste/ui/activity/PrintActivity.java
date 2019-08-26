@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.posapi.PosApi;
 import android.posapi.PrintQueue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.medical.waste.app.App;
 import com.medical.waste.base.BaseActivity;
 import com.medical.waste.bean.Department;
 import com.medical.waste.bean.UploadData;
+import com.medical.waste.utils.QRCodeUtil;
 import com.medical.waste.utils.UserData;
 import com.medical.waste.utils.Utils;
 
@@ -34,6 +36,8 @@ public class PrintActivity extends BaseActivity {
     View mPrintView;
     @BindView(R.id.content)
     TextView mContent;
+    @BindView(R.id.qrcode)
+    ImageView mQRCode;
     private PrintQueue mPrintQueue = null;
     private PosApi mPosApi;
     //检测黑标指令(detect the black label)
@@ -134,8 +138,23 @@ public class PrintActivity extends BaseActivity {
 
 
         });
-
+        createQrCode(uploadData.getId());
     }
+    private void createQrCode(String content) {
+        Executors.newCachedThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bitmap = QRCodeUtil.createQRCodeBitmap(content, 300, 300);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mQRCode.setImageBitmap(bitmap);
+                    }
+                });
+            }
+        });
+    }
+
 
 
     PosApi.OnCommEventListener mCommEventListener = new PosApi.OnCommEventListener() {

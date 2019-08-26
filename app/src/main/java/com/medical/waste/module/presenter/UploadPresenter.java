@@ -1,5 +1,7 @@
 package com.medical.waste.module.presenter;
 
+import com.medical.waste.R;
+import com.medical.waste.app.App;
 import com.medical.waste.base.BasePresenterImpl;
 import com.medical.waste.bean.Department;
 import com.medical.waste.bean.RubbishType;
@@ -9,6 +11,7 @@ import com.medical.waste.module.contract.UploadContract;
 import com.medical.waste.module.model.AddModel;
 import com.medical.waste.module.model.UploadModel;
 import com.medical.waste.module.model.UserModel;
+import com.medical.waste.utils.ToastUtils;
 
 import java.util.List;
 
@@ -19,10 +22,14 @@ public class UploadPresenter extends BasePresenterImpl<UploadContract.View, Uplo
     }
 
     public void getDepartmentById(String id) {
-        mModel.getDepartmentById(id,new SimpleCallback<Department>(mView) {
+        mModel.getDepartmentById(id, new SimpleCallback<Department>(mView) {
             @Override
             public void requestSuccess(Department data) {
-                mView.showDepartment(data);
+                if (mView != null) {
+                    mView.showDepartment(data);
+                } else {
+                    ToastUtils.toastShort(App.getContext(), R.string.error_scan);
+                }
             }
         });
     }

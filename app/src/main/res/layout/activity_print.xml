@@ -45,19 +45,15 @@
                     android:id="@+id/content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40pt"
+                    android:layout_marginTop="10pt"
                     android:lineSpacingExtra="10pt"
                     android:text="@string/print_content"
                     android:textColor="@color/color_333333"
                     android:textSize="14sp" />
-
-                <TextView
+                <ImageView
+                    android:id="@+id/qrcode"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="60pt"
-                    android:text="@string/hospital_medical_waste"
-                    android:textColor="@color/color_333333"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
         </LinearLayout>

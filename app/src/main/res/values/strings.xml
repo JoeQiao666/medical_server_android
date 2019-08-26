@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">院内医疗废弃物管理平台</string>
+    <string name="app_name">医疗废弃物管理平台</string>
 
     <string name="input_phone_number">请输入手机号码</string>
     <string name="input_message_code">请输入验证码</string>
@@ -90,4 +90,6 @@
     <string name="close">关闭</string>
     <string name="error_card">卡号不对</string>
     <string name="no_hospital">未能查询到医院信息</string>
+    <string name="error_qrcode">二维码格式不对</string>
+    <string name="error_scan">扫码出错，请稍后重扫</string>
 </resources>

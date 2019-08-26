@@ -10,7 +10,6 @@ import com.medical.waste.module.contract.UploadContract;
 import com.medical.waste.module.presenter.UploadPresenter;
 import com.medical.waste.utils.UserData;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import butterknife.OnClick;
@@ -51,15 +50,18 @@ public class UploadActivity extends BaseScanActivity<UploadContract.Presenter> i
         try {
             JSONObject jsonObject = new JSONObject(content);
             mPresenter.getDepartmentById(jsonObject.optString("id"));
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            toast(R.string.error_qrcode);
         }
     }
 
     @Override
     public void showDepartment(Department department) {
-        UserData.getInstance().clearUploadData();
-        UserData.getInstance().setDepartment(department);
-        startActivity(new Intent(this, ScanScaleActivity2.class));
+        if (department != null) {
+            UserData.getInstance().clearUploadData();
+            UserData.getInstance().setDepartment(department);
+            startActivity(new Intent(this, ScanScaleActivity2.class));
+        }
     }
 }
