@@ -44,7 +44,7 @@ public class PrintActivity extends BaseActivity {
     private static final int PRINTER_CMD_KEY_CHECKBLACK = 1;
     //设置打印纸类型指令(setting the paper type instructions)
     private static final int PRINTER_CMD_KEY_PAPER_TYPE = 2;
-    private boolean hasPrint = false;
+//    private boolean hasPrint = false;
 
     @Override
     protected void initView() {
@@ -207,27 +207,27 @@ public class PrintActivity extends BaseActivity {
     @OnClick(R.id.next)
     void next() {
         showProgress("正在打印...");
-        if (hasPrint) {
-            mPrintQueue.printStart();
-        } else {
+//        if (hasPrint) {
+//            mPrintQueue.printStart();
+//        } else {
             print();
-        }
+//        }
 
     }
 
     private void print() {
-        hasPrint = true;
+//        hasPrint = true;
         Executors.newCachedThreadPool().execute(new Runnable() {
             @Override
             public void run() {
 
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.icon_medical_waste);
-                if (bitmap == null) return;
+//                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.icon_medical_waste);
+//                if (bitmap == null) return;
                 // ivImage.setImageBitmap(bitmap);//展示
-                int mLeft = 152;
-                byte[] printData = Utils.bitmap2PrinterBytes(Utils.gray2Binary(bitmap));
-                mPrintQueue.addBmp(25, mLeft, bitmap.getWidth(), bitmap.getHeight(), printData);
-                bitmap.recycle();
+//                int mLeft = 152;
+//                byte[] printData = Utils.bitmap2PrinterBytes(Utils.gray2Binary(bitmap));
+//                mPrintQueue.addBmp(25, mLeft, bitmap.getWidth(), bitmap.getHeight(), printData);
+//                bitmap.recycle();
                 Bitmap bitmap1 = Utils.gray2Binary(Utils.getViewBitmap(mPrintView));//对图像二值化
                 byte[] printData1 = Utils.bitmap2PrinterBytes(bitmap1);
                 mPrintQueue.addBmp(25, 0, bitmap1.getWidth(), bitmap1.getHeight(), printData1);

@@ -225,13 +225,13 @@ public class PrintHistoryActivity extends BaseActivity {
             @Override
             public void run() {
 
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.icon_medical_waste);
-                if (bitmap == null) return;
+//                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.icon_medical_waste);
+//                if (bitmap == null) return;
                 // ivImage.setImageBitmap(bitmap);//展示
-                int mLeft = 152;
-                byte[] printData = Utils.bitmap2PrinterBytes(Utils.gray2Binary(bitmap));
-                mPrintQueue.addBmp(25, mLeft, bitmap.getWidth(), bitmap.getHeight(), printData);
-                bitmap.recycle();
+//                int mLeft = 152;
+//                byte[] printData = Utils.bitmap2PrinterBytes(Utils.gray2Binary(bitmap));
+//                mPrintQueue.addBmp(25, mLeft, bitmap.getWidth(), bitmap.getHeight(), printData);
+//                bitmap.recycle();
                 Bitmap bitmap1 = Utils.gray2Binary(Utils.getViewBitmap(mPrintView));//对图像二值化
                 byte[] printData1 = Utils.bitmap2PrinterBytes(bitmap1);
                 mPrintQueue.addBmp(25, 0, bitmap1.getWidth(), bitmap1.getHeight(), printData1);
