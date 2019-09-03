@@ -30,7 +30,8 @@ public class AppConstant {
     //扫描code
     public static final int REQUEST_CODE_SCAN_CODE = 1000;
     //base url
-    public static final String BASE_URL = "http://47.88.171.244:8080";
+//    public static final String BASE_URL = "http://47.88.171.244:8080";
+    public static final String BASE_URL = "http://www.jiangsuyws.com:8080";
     public static final long CONNECT_TIME_OUT = 30000;
     public static final long READ_TIME_OUT = 30000;
     public static final String APP = "app";
