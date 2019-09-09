@@ -210,23 +210,35 @@ public class InSuccessActivity extends BaseActivity{
     }
     @OnClick(R.id.print)
     void print() {
-        View printView = LayoutInflater.from(this).inflate(R.layout.in_success_print_view,null);
-        TextView content = printView.findViewById(R.id.content);
-        content.setText(getString(R.string.in_print_content,rubbishList.size()+"",getTotalWeight(), UserData.getInstance().getHospital()));
         Executors.newCachedThreadPool().execute(new Runnable() {
             @Override
             public void run() {
-
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.icon_medical_waste);
                 int mLeft = 152;
                 byte[] printData = Utils.bitmap2PrinterBytes(Utils.gray2Binary(bitmap));
                 mPrintQueue.addBmp(25, mLeft, bitmap.getWidth(), bitmap.getHeight(), printData);
-                bitmap.recycle();
-                Bitmap bitmap1 = Utils.gray2Binary(Utils.getViewBitmap(printView));//对图像二值化
-                byte[] printData1 = Utils.bitmap2PrinterBytes(bitmap1);
-                mPrintQueue.addBmp(25, 0, bitmap1.getWidth(), bitmap1.getHeight(), printData1);
-                bitmap1.recycle();
+                StringBuffer sb = new StringBuffer();
+                sb.append("\n");
+                sb.append("            医疗垃圾");
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("      总包数："+rubbishList.size());
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("      总重量："+getTotalWeight());
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("      医院："+UserData.getInstance().getHospital());
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("         ");
+                PrintQueue.TextData  tData =  mPrintQueue.new TextData();//构造TextData实例
+                tData.addText(sb.toString());//添加打印内容
+                mPrintQueue.addText(25,tData);//添加到打印队列
                 runOnUiThread(() -> mPrintQueue.printStart());
+                bitmap.recycle();
             }
         });
     }
