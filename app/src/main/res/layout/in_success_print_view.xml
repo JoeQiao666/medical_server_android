@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/print_view"
+    android:layout_width="394px"
+    android:layout_height="wrap_content"
+    android:background="@color/material_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="10pt"
+    android:paddingBottom="30pt">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/medical_waste"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10pt"
+        android:lineSpacingExtra="5pt"
+        android:text="@string/in_print_content"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp" />
+
+</LinearLayout>

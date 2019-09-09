@@ -92,4 +92,5 @@
     <string name="no_hospital">未能查询到医院信息</string>
     <string name="error_qrcode">二维码格式不对</string>
     <string name="error_scan">扫码出错，请稍后重扫</string>
+    <string name="in_print_content">总包数：%1$s\n总重量：%2$skg\n医院：%3$s</string>
 </resources>
