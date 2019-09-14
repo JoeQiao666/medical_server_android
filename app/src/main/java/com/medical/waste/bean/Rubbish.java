@@ -66,7 +66,7 @@ public class Rubbish implements Serializable {
     @Transient
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     @Transient
-    private SimpleDateFormat format1 = new SimpleDateFormat("yyyy.MM.dd");
+    private SimpleDateFormat format1 = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 
     @Generated(hash = 2051998678)
     public Rubbish(String id, String departmentId, String weight, String typeId,

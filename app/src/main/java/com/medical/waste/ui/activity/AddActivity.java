@@ -92,7 +92,7 @@ public class AddActivity extends BaseBluetoothLeActivity<AddContract.Presenter> 
         UploadData uploadData = new UploadData();
         uploadData.setId(Utils.getUUid());
         uploadData.setDepartmentId(department.getId());
-        SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         String time = format.format(System.currentTimeMillis());
         uploadData.setTime(time);
         uploadData.setIsBottle(0);

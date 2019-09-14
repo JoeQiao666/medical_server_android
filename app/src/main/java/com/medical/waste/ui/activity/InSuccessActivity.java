@@ -27,6 +27,7 @@ import com.medical.waste.utils.Utils;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.concurrent.Executors;
 
@@ -36,7 +37,7 @@ import butterknife.OnClick;
 @ActivityFragmentInject(contentViewId = R.layout.activity_in_success,
         isShowLeftBtn = false,
         toolbarTitle = R.string.in_success)
-public class InSuccessActivity extends BaseActivity{
+public class InSuccessActivity extends BaseActivity {
     @BindView(R.id.bag_count)
     TextView mBagCount;
     @BindView(R.id.weight)
@@ -52,7 +53,7 @@ public class InSuccessActivity extends BaseActivity{
     private static final int PRINTER_CMD_KEY_CHECKBLACK = 1;
     //设置打印纸类型指令(setting the paper type instructions)
     private static final int PRINTER_CMD_KEY_PAPER_TYPE = 2;
-    private boolean hasPrint = false;
+
     @Override
     protected void initView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -191,7 +192,7 @@ public class InSuccessActivity extends BaseActivity{
         for (Rubbish rubbish : rubbishList) {
             bd1 = new BigDecimal(rubbish.getWeight());
             bd2 = new BigDecimal(totalWeight);
-            totalWeight =  bd1.add(bd2).toString();
+            totalWeight = bd1.add(bd2).toString();
         }
         return totalWeight;
     }
@@ -204,10 +205,11 @@ public class InSuccessActivity extends BaseActivity{
 
     @OnClick(R.id.next)
     void next() {
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
     @OnClick(R.id.print)
     void print() {
         Executors.newCachedThreadPool().execute(new Runnable() {
@@ -217,26 +219,37 @@ public class InSuccessActivity extends BaseActivity{
                 int mLeft = 152;
                 byte[] printData = Utils.bitmap2PrinterBytes(Utils.gray2Binary(bitmap));
                 mPrintQueue.addBmp(25, mLeft, bitmap.getWidth(), bitmap.getHeight(), printData);
+                SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+
                 StringBuffer sb = new StringBuffer();
                 sb.append("\n");
                 sb.append("            医疗垃圾");
                 sb.append("\n");
                 sb.append("\n");
                 sb.append("\n");
-                sb.append("      总包数："+rubbishList.size());
+                sb.append("      时间：" + format.format(System.currentTimeMillis()));
                 sb.append("\n");
                 sb.append("\n");
-                sb.append("      总重量："+getTotalWeight());
+//                sb.append("      总包数：" + 3);
+                sb.append("      总包数：" + rubbishList.size());
                 sb.append("\n");
                 sb.append("\n");
-                sb.append("      医院："+UserData.getInstance().getHospital());
+//                sb.append("      总重量：" + "10kg");
+                sb.append("      总重量：" + getTotalWeight());
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("      医院：" + UserData.getInstance().getHospital());
                 sb.append("\n");
                 sb.append("\n");
                 sb.append("\n");
-                sb.append("         ");
-                PrintQueue.TextData  tData =  mPrintQueue.new TextData();//构造TextData实例
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("\n");
+                sb.append("\n");
+                PrintQueue.TextData tData = mPrintQueue.new TextData();//构造TextData实例
                 tData.addText(sb.toString());//添加打印内容
-                mPrintQueue.addText(25,tData);//添加到打印队列
+                mPrintQueue.addText(25, tData);//添加到打印队列
                 runOnUiThread(() -> mPrintQueue.printStart());
                 bitmap.recycle();
             }
@@ -260,13 +273,14 @@ public class InSuccessActivity extends BaseActivity{
         }
 
     };
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mPosApi!=null){
+        if (mPosApi != null) {
             mPosApi.closeDev();
         }
-        if(mPrintQueue!=null){
+        if (mPrintQueue != null) {
             mPrintQueue.close();
         }
     }
