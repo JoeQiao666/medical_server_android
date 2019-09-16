@@ -47,6 +47,7 @@ public class LoginActivity extends BaseNFCActivity<UserContract.LoginPresenter> 
         }
         KLog.e(id);
         mPresenter.login(id);
+//        mPresenter.login("9946403c");
     }
 
     @Override
