@@ -172,7 +172,7 @@ public class PrintHistoryActivity extends BaseActivity {
                     if (state == PosApi.COMM_STATUS_SUCCESS) {
 //                        toast("设备初始化成功");
                     } else {
-                        toast("设备初始化失败");
+                        toast("打印设备初始化失败");
                     }
                     break;
             }

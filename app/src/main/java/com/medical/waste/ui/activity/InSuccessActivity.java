@@ -264,9 +264,9 @@ public class InSuccessActivity extends BaseActivity {
             switch (cmdFlag) {
                 case PosApi.POS_INIT:
                     if (state == PosApi.COMM_STATUS_SUCCESS) {
-                        toast("设备初始化成功");
+//                        toast("设备初始化成功");
                     } else {
-                        toast("设备初始化失败");
+                        toast("打印设备初始化失败");
                     }
                     break;
             }
