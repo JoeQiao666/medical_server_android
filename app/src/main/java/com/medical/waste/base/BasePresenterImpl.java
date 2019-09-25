@@ -67,6 +67,5 @@ public class BasePresenterImpl<View extends BaseView,Model> implements BasePrese
         compositeDisposable.dispose();
         observableMap = null;
         compositeDisposable = null;
-        mView = null;
     }
 }
